@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--black);
+}
+
+/* Ẩn icon clear mặc định */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Button */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  background: none;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  padding: 0;
+  margin: 0 2px;
+  outline: none;
+  z-index: 3;
+}
+
+.btn:hover {
+  background-color: var(--fill-hover);
+}
+
+.btn-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 999px;
+}
+
+/* Main */
+
+.container {
+  display: grid;
+  grid-template-columns: 270px 1fr 55px;
+  grid-template-rows: auto calc(100vh - 64px);
+  overflow: hidden;
+}
+
+/* header */
+
+.header {
+  display: grid;
+  grid-template-columns: 240px 1fr min-content;
+  justify-content: space-between;
+  align-items: center;
+  grid-column-gap: 10px;
+  height: 64px;
+  padding: 0.15rem;
+  background-color: white;
+  border-bottom: 1px solid var(--fill-border);
+  grid-column: 1 / -1;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  margin: 0px 7px;
+}
+
+.header-logo {
+  margin-top: 8px;
+}
+
+.header-middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 48px;
+  max-width: 720px;
+  background-color: var(--fill-grey);
+  border-radius: 8px;
+  padding: 3px 8px;
+}
+/* đổi màu khi click vào thanh search */
+.header-middle:focus-within {
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(99, 106, 112, 0.103);
+}
+/* ẩn icon clear khi chưa click vào search */
+.btn[type="reset"] {
+  display: none;
+}
+/* hiện icon clear khi click vào search */
+.header-middle:focus-within .btn[type="reset"] {
+  display: flex;
+}
+
+.header-middle-input {
+  display: block;
+  font-family: var(--font);
+  font-size: 16px;
+  background-color: transparent;
+  width: 100%;
+  padding: 0px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  right: 2px;
+}
+
+#header-profile {
+  height: 40px;
+  width: 40px;
+}
+
+.header-profile {
+  height: 32px;
+  width: 32px;
+  opacity: 1;
+}
+
+#header-menu {
+  width: 48px;
+  height: 48px;
+  margin-top: 2px;
+}
+
+/* Icon */
+.material-icons {
+  color: #5f6368;
+  opacity: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+/* Slidebar left */

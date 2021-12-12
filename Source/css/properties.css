@@ -1,0 +1,32 @@
+:root {
+  /* Font */
+  --font: 'Roboto', Arial, Helvetica, sans-serif;
+  --font-2: 'Google Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  /* Color */
+  --black: #202124;
+  --grey: #3c4043;
+  --light-grey: #5f6368;
+  --red: #d93025;
+  --blue: #427fed;
+  --fill-red: #fce8e6;
+  --fill-grey: #f1f3f4;
+  --fill-hover: #b4bdc42a;
+  --fill-border: #e5e5e5;
+}
+
+/* Font-Face */
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Bwp5MKg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v18/KFOkCnqEu92Fr1Mu51xFIzIFKw.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
