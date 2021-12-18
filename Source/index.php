@@ -22,6 +22,7 @@
     <?php include 'template/left-sidebar.php'; ?>
     <!-- BODY -->
     <section class="inbox">
+      <!-- MAIL -->
       <div class="inbox-menu">
 
         <div class="inbox-menu-group">
@@ -249,6 +250,8 @@
         </div>
       </div>
     </section>
+    <!-- RIGHT SIDEBAR -->
+    <?php include 'template/right-sidebar.php'; ?>
   </div>
   <!-- Script -->
   <script type="text/javascript">
