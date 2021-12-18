@@ -247,6 +247,8 @@
               </div>
             </div>
           </div>
+          <!-- FOOTER -->
+          <?php include 'template/footer.php'; ?>
         </div>
       </div>
     </section>
