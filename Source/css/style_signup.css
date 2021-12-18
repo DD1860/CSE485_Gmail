@@ -1,0 +1,43 @@
+.logo {
+  display: block;
+  margin: 10px auto;
+  max-height: 30px;
+  margin-left: 0px;
+}
+.form{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+#div2{
+  width: 90%;
+  margin-left:240px;
+
+}
+label{
+  font-size: 17px;
+  opacity: 0.9;
+}
+select{
+  border: 1px solid white;   
+}
+ul{
+  list-style-type: none;
+
+}
+li{
+  float: left;
+  padding: 17px;
+}
+
+#a4{
+  text-decoration: none;
+  color: #5c5959;
+  font-size: 15px;
+}
+
+.register{
+ margin: auto;
+ margin-left: 100px;
+
+}
