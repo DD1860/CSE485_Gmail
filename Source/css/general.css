@@ -140,7 +140,7 @@ body {
 }
 
 .labels {
-	max-height: 250px;
+	max-height: 222px;
 	overflow-y: auto;
 }
 
@@ -195,7 +195,7 @@ body {
 	font-weight: 500;
 	letter-spacing: 0.25px;
 	padding: 0 12px 0 26px;
-	margin: 10px 0;
+	margin-top: 10px;
 }
 
 .left-sidebar-icon {
@@ -203,25 +203,26 @@ body {
 }
 
 .category-img {
+	margin-top: 15px;;
 	height: 28px;
 	width: 28px;
-    margin-left: 16px;
+    margin-left: 23px;
 	user-select: none;
 }
 .dot-green {
+position: relative;
 border-radius : 100%;
 background: #35ac19;
 width: 10px;
 height: 10px;
-margin-left: 32px;
+margin-left: 44px;
+bottom: 8px;
 }
 
 .connect {
 	display: flex;
 	flex-flow: column;
 	width: 100%;
-	margin: 0;
-	padding: 0;
 	padding-right: 16px;
 	margin-bottom: 8px;
 	border-top: 1px solid var(--fill-border);
@@ -245,4 +246,18 @@ margin-left: 32px;
 	display: block;
 	color: var(--blue);
 	text-decoration: none;
+}
+
+.user-name {
+	font-family: var(--font);
+	font-size: 13px;
+    margin-left: 65px;
+	position: relative;
+	bottom: 28px;
+	font-weight: 300;
+}
+.plus-hangout {
+  position:relative;
+ float: right;
+ bottom: 20px;
 }

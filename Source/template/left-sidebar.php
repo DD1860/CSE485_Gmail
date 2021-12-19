@@ -116,7 +116,7 @@
     </div>
     <div class="left-sidebar-connect">
 
-        <div class="connect meets">
+        <div class="connect">
             <div class="drag-btn-container">
                 <button class="drag-btn"></button>
             </div>
@@ -139,16 +139,18 @@
 
         </div>
 
-        <div class="connect hangouts">
-            <span class="category-title">Hangouts</span>
+        <div class="connect">
+            <span class="category-title" style="margin-top: 20px;">Hangouts</span>
             <img class="category-img" src="images/avatar.png" alt="">
             <div class="dot-green"></div>
+            <div class="user-name">Phùng Đại Đức</div>
         </div>
 
         <div class="connect hangouts">
-            <div class="text-hangout"> Không có cuộc trò chuyện nào gần đây. </div>
-            <a href="#" class="connect-link" style="margin-top:7px; font-size:13px; text-align: center;">Bắt đầu một
-                cuộc trò chuyện mới</a>
+            <div class="text-hangout" style="margin-top:25px;"> Không có cuộc trò chuyện nào gần đây.
+                <a href="#" class="connect-link" style="margin-top:7px; font-size:13px; text-align: center;">Bắt đầu một
+                    cuộc trò chuyện mới</a>
+            </div>
         </div>
 
     </div>
