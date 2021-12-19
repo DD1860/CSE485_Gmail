@@ -28,8 +28,8 @@
         Please provide a valid zip.
       </p><br>
 
-      <div class="col-md-6">
-        <a style="text-decoration: none" href="QuênMail.html">Bạn quên địa chỉ email</a>
+      <div class="col-md-6" style="margin-top:10px;">
+        <a style="text-decoration: none; " href="QuênMail.html">Bạn quên địa chỉ email</a>
       </div>
       <p style="padding: 5%; color: rgb(124, 121, 117);">
         Đây không phải máy tính của bạn? Hãy sử dụng chế độ Khách để đăng nhập một cách riêng tư.<a
