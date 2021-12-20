@@ -14,21 +14,17 @@
     crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
-
 <body>
   <div id="div1">
     <img src="https://media1.nguoiduatin.vn/media/vu-thu-huong/2019/12/19/anh-google.png" alt="">
     <h4>Tìm email của bạn</h4>
     <p>Nhập số điện thoại hoặc email khôi phục</p>
-
     <input type="text" name="email" id="email" placeholder="Số điện thoại hoặc email" required><br>
-
     <div class="d-grid  col-4 " style="margin: 10% 0% 0% 59%;">
       <button type="button" class="btn btn-primary">Tiếp theo</button>
     </div>
   </div>
   <div style="margin-left: 36.5%; font-size: 15px; width: 26%;">
-
     <!-- nav -->
     <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid">
@@ -41,7 +37,6 @@
           <option value="#">Italiano</option>
           <option value="#">Chinese</option>
         </select>
-
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="font-size: 14px;  ">
           <li class="nav-item">
             <a class="nav-link active" href="https://support.google.com/accounts?hl=vi#topic=3382296"
@@ -56,11 +51,9 @@
               style="color: rgb(124, 121, 117);">Điều khoản</a>
           </li>
         </ul>
-
       </div>
     </nav>
   </div>
   </div>
 </body>
-
 </html>

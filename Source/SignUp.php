@@ -14,20 +14,16 @@
     crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
-
 <body>
   <div id="div1">
     <img src="https://media1.nguoiduatin.vn/media/vu-thu-huong/2019/12/19/anh-google.png" alt="">
     <h4>Đăng nhập</h4>
     <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
-
     <form>
-
       <input type="email" name="email" id="email" placeholder="Email hoặc số điện thoại" required>
       <p class="invalid-feedback">
         Please provide a valid zip.
       </p><br>
-
       <div class="col-md-6" style="margin-top:10px;">
         <a style="text-decoration: none; " href="QuênMail.html">Bạn quên địa chỉ email</a>
       </div>
@@ -46,7 +42,6 @@
     </form>
   </div>
   <div style="margin-left: 36.5%; font-size: 15px; width: 26%;">
-
     <!-- nav -->
     <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid">
@@ -59,7 +54,6 @@
           <option value="#">Italiano</option>
           <option value="#">Chinese</option>
         </select>
-
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="font-size: 14px;  ">
           <li class="nav-item">
             <a class="nav-link active" href="https://support.google.com/accounts?hl=vi#topic=3382296"
@@ -74,11 +68,8 @@
               style="color: rgb(124, 121, 117);">Điều khoản</a>
           </li>
         </ul>
-
       </div>
     </nav>
   </div>
-
 </body>
-
 </html>
