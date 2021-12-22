@@ -24,17 +24,19 @@
 						<h1 class="text-center text-uppercase mb-3 text-primary">Login</h1>
 						<div class="form-group">
 							<label for="email">Email</label>
+							<form class="form-signin" action="process-login-admin.php" method="post">
 							<input type="email" class="form-control form-control-lg" name="email" id="email"
-								aria-describedby="helpId" placeholder="">
+								aria-describedby="helpId" placeholder="Email">
 						</div>
 						<div class="form-group">
 							<label for="password">Password</label>
 							<input type="password" class="form-control form-control-lg" name="password" id="password"
-								aria-describedby="helpId" placeholder="">
-							<a href="#!">Forgot password?</a>
+								aria-describedby="helpId" placeholder="****">
+							<a href="#"><br>Forgot password?</a>
 						</div>
 						<button class="btn btn-primary btn-block btn-lg" style="margin-top:45px;" name="btnlogin" >Login</button>
 					</div>
+                  </form>
 				</div>
 			</div>
 		</div>
