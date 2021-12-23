@@ -143,7 +143,11 @@
             <span class="category-title" style="margin-top: 20px;">Hangouts</span>
             <img class="category-img" src="images/avatar.png" alt="">
             <div class="dot-green"></div>
-            <div class="user-name">Phùng Đại Đức</div>
+            <div class="user-name">
+            <?php 
+             echo "".$_SESSION['isLoginOK']."";
+                ?>
+                </div>
         </div>
 
         <div class="connect hangouts">

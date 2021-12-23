@@ -11,6 +11,7 @@
         }
         // Bước 02: Thực hiện truy vấn
         $sql = "SELECT * FROM tb_user WHERE email = '$emailafter' AND password ='$pass'";
+        $sql_name = "SELECT firstName, lastName FROM tb_user WHERE email = '$emailafter'";
         // Ở đây còn có các vấn đề về tính hợp lệ dữ liệu nhập vào FORM
         // Nghiêm trọng: lỗi SQL Injection
         $result = mysqli_query($conn,$sql);
