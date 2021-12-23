@@ -7,6 +7,7 @@
     <title>Login For Administrator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <section class="main-content">
@@ -34,14 +35,13 @@
 								aria-describedby="helpId" placeholder="****">
 							<a href="#"><br>Forgot password?</a>
 						</div>
-						<button class="btn btn-primary btn-block btn-lg" style="margin-top:45px;" name="btnlogin" >Login</button>
+						<div class="g-recaptcha" data-sitekey="6LeRBcEdAAAAAARIggqyuVLdqGkvTFtBs5oG01-g"></div>
+						<button class="btn btn-primary btn-block btn-lg" style="margin-top:45px;" type="submit" name="btnlogin">Login</button>
 					</div>
                   </form>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-</body>
 </body>
 </html>
