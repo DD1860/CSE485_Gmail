@@ -1,12 +1,11 @@
 <section class="left-sidebar">
 
     <div class="left-sidebar-create">
-        <button class="sidebar-btn-create">
+        <button class="sidebar-btn-create" id="popup-btn">
             <img src="images/create.png" alt="create new email" class="sidebar-btn-create-icon">
             <span class="sidebar-btn-create-title">Soạn thư</span>
         </button>
     </div>
-
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
             <li class="category-item active">
@@ -144,10 +143,10 @@
             <img class="category-img" src="images/avatar.png" alt="">
             <div class="dot-green"></div>
             <div class="user-name">
-            <?php 
+                <?php 
              echo "".$_SESSION['isLoginOK']."";
                 ?>
-                </div>
+            </div>
         </div>
 
         <div class="connect hangouts">
@@ -159,3 +158,17 @@
 
     </div>
 </section>
+<!-- Javascrip compose popup -->
+<script>
+let btnpopup = document.getElementById("popup-btn");
+let popup = document.querySelector(".popup");
+let closeBtn = document.querySelector(".close-btn");
+// Hiển thị popup khi nhấp chuột vào button
+btnpopup.onclick = function() {
+    popup.style.display = "block"
+}
+// Đóng popup khi ấn vào nút đóng
+closeBtn.onclick = function() {
+popup.style.display = "none"
+}
+</script>
