@@ -127,7 +127,6 @@
 .content {
 	display: block;
 	margin-bottom: 16px;
-	height: 400px;
 }
 
 .mail {
@@ -260,4 +259,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+
+.open-inbox {
+	display: none;
+  }
+
+.inbox-content {
+	margin : 25px;
 }
