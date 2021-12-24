@@ -1,11 +1,22 @@
 <section class="left-sidebar">
 
-    <div class="left-sidebar-create">
-        <button class="sidebar-btn-create" id="popup-btn">
+    <div class="left-sidebar-create" id="popup-btn">
+        <button class="sidebar-btn-create">
             <img src="images/create.png" alt="create new email" class="sidebar-btn-create-icon">
             <span class="sidebar-btn-create-title">Soạn thư</span>
         </button>
     </div>
+    <!-- popup compose gmail -->
+    <div class="popup">
+        <div class="popup-content">
+            <div class="popup-head">
+                <span class="close-btn">&times;</span>
+                <p>Thư mới</p>
+            </div>
+            <p>Subject & Nội dung tin nhắn ở đây</p>
+        </div>
+    </div>
+
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
             <li class="category-item active">
@@ -143,8 +154,8 @@
             <img class="category-img" src="images/avatar.png" alt="">
             <div class="dot-green"></div>
             <div class="user-name">
-                <?php 
-             echo "".$_SESSION['isLoginOK']."";
+                <?php
+                echo "" . $_SESSION['isLoginOK'] . "";
                 ?>
             </div>
         </div>
@@ -160,15 +171,15 @@
 </section>
 <!-- Javascrip compose popup -->
 <script>
-let btnpopup = document.getElementById("popup-btn");
-let popup = document.querySelector(".popup");
-let closeBtn = document.querySelector(".close-btn");
-// Hiển thị popup khi nhấp chuột vào button
-btnpopup.onclick = function() {
-    popup.style.display = "block"
-}
-// Đóng popup khi ấn vào nút đóng
-closeBtn.onclick = function() {
-popup.style.display = "none"
-}
+    let btnpopup = document.getElementById("popup-btn");
+    let popup = document.querySelector(".popup");
+    let closeBtn = document.querySelector(".close-btn");
+    // Hiển thị popup khi nhấp chuột vào button
+    btnpopup.onclick = function() {
+        popup.style.display = "block"
+    }
+    // Đóng popup khi ấn vào nút đóng
+    closeBtn.onclick = function() {
+        popup.style.display = "none"
+    }
 </script>
