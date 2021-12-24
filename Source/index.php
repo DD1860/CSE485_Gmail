@@ -116,12 +116,6 @@
                 </button>
               </div>
 
-              <div class="message-group-hidden">
-                <button class="btn-alt btn-nofill">
-                  <img src="images/icon/drag_indicator.png" alt="Drag" class="btn-icon-disabled">
-                </button>
-              </div>
-
               <button class="btn star" style="margin: 0;">
                 <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
               </button>
@@ -163,16 +157,11 @@
                 </div>
               </div>
             </div>
-  <!-- Message Read  -->
+             <!-- Message Read  -->
             <div class="inbox-message-item  message-default-unread">
               <div class="checkbox" style="margin-right: -12px;">
               <button class="btn">
                   <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
-                </button>
-              </div>
-              <div class="message-group-hidden">
-                <button class="btn-alt btn-nofill">
-                  <img src="images/icon/drag_indicator.png" alt="Drag" class="btn-icon-disabled">
                 </button>
               </div>
             

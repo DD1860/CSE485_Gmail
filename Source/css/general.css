@@ -87,6 +87,7 @@ body {
 .btn-icon-disabled {
   opacity: 0.175;
 }
+
 /* Sidebar left */
 
 .left-sidebar {
@@ -261,6 +262,17 @@ body {
   float: right;
   bottom: 20px;
 }
+.left-sidebar-footer {
+    position: fixed;
+    height: 32px;
+    width: 275px;
+    bottom: 0px;
+	display: flex;
+	justify-content: center;
+	border-top: 1px solid var(--fill-border);
+    background-color: rgb(255, 255, 255);
+}
+
 /* Popup compose  */
 
 .popup {
@@ -299,10 +311,9 @@ body {
 }
 
 .close-btn {
-  margin-top: -5px;
   float: right;
-  color: #ebebeb;
-  font-size: 25px;
+  color: #bdbdbd;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -323,8 +334,35 @@ body {
   font-size: 14px;
 }
 
-.text-message input {
-  color: rgb(0, 0, 0);
+.text-message {
+  background: transparent;
   font-family: var(--font);
-  font-size: 14px;
+  height: 62%;
+  width: 95%;
+  color: rgb(33, 37, 41);
+  font-size: 16px;
+  border: none;
+  outline: none;
+  margin: 10px 8px 0 15px;
 }
+
+.btn-send {
+  position: fixed;
+  height: 35px;
+  width: 100px;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #0a6df0;
+  color: #fff;
+  border: none;
+  bottom: 20px;
+  margin-left : 20px;
+}
+
+ .btn-send:hover {
+    background-color: #008cff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  }

@@ -22,10 +22,8 @@
                 <input type="text" placeholder="Chủ đề" required>
             </div>
 
-            <div class="text-message">
-                <input type="text" required>
-            </div>
-
+            <button type="button" class="btn-send">Gửi</button>
+            <textarea class="text-message" style="resize:none" name="name" cols="24" rows="4"></textarea>
         </div>
     </div>
 
@@ -177,7 +175,18 @@
                 <a href="#" class="connect-link" style="margin-top:7px; font-size:13px; text-align: center;">Bắt đầu một
                     cuộc trò chuyện mới</a>
             </div>
+
         </div>
+    </div>
+    <div class="left-sidebar-footer">
+
+        <button class="btn">
+            <img src="images/icon/person.png" class="btn-icon-sm">
+        </button>
+
+        <button class="btn">
+            <img src="images/icon/hangout.png" class="btn-icon-sm active">
+        </button>
 
     </div>
 </section>
