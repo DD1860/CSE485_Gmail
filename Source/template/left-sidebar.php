@@ -13,7 +13,19 @@
                 <span class="close-btn">&times;</span>
                 <p>Thư mới</p>
             </div>
-            <p>Subject & Nội dung tin nhắn ở đây</p>
+
+            <div class="send-to">
+                <input type="text" placeholder="Người nhận" required>
+            </div>
+
+            <div class="send-to subject">
+                <input type="text" placeholder="Chủ đề" required>
+            </div>
+
+            <div class="text-message">
+                <input type="text" required>
+            </div>
+
         </div>
     </div>
 
@@ -171,15 +183,15 @@
 </section>
 <!-- Javascrip compose popup -->
 <script>
-    let btnpopup = document.getElementById("popup-btn");
-    let popup = document.querySelector(".popup");
-    let closeBtn = document.querySelector(".close-btn");
-    // Hiển thị popup khi nhấp chuột vào button
-    btnpopup.onclick = function() {
-        popup.style.display = "block"
-    }
-    // Đóng popup khi ấn vào nút đóng
-    closeBtn.onclick = function() {
-        popup.style.display = "none"
-    }
+let btnpopup = document.getElementById("popup-btn");
+let popup = document.querySelector(".popup");
+let closeBtn = document.querySelector(".close-btn");
+// Hiển thị popup khi nhấp chuột vào button
+btnpopup.onclick = function() {
+    popup.style.display = "block"
+}
+// Đóng popup khi ấn vào nút đóng
+closeBtn.onclick = function() {
+    popup.style.display = "none"
+}
 </script>
