@@ -6,8 +6,21 @@ if (!isset($_SESSION['isLoginOK'])) {
   header("location:SignUp.php");
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<!-- + biết email đăng nhập 
+// + cần get id 
+// $getid = "Select ID form tb_user where email = '$_SESSION['isLoginOK']' "; // lấy ra id của user thông qua email đã đăng nhập
+// ex : output = 1
+// // lấy subjetc
+// select subject from tb_mail where to_user = '$getid'
+// // lấy nội dung tin
+// select text from tb_mail where to_user = '$getid' -->
+<!-- $conn = mysqli_connect('localhost','root','','db_gmail');
+mysqli_set_charset($conn, 'UTF8');
+$_SESSION['isLoginOK'] = $a;
+$result = mysqli_query($conn,"SELECT ID FROM tb_user WHERE email = '$a' ");
+$row = mysqli_fetch_assoc($result);
+$id = " ".$row["ID"]."  "; -->
 
 <head>
     <meta charset="UTF-8">
@@ -113,7 +126,26 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                     <div class="content">
                         <div class="mail">
-                            <div class="inbox-message-item">
+                            
+
+
+                       <!-- Vùng này là Dữ liệu cần lặp lại hiển thị từ CSDL -->
+                <?php
+                    // Bước 01: Kết nối Database Server
+                    $conn = mysqli_connect('localhost','root','','db_gmail');
+                    mysqli_set_charset($conn, 'UTF8');
+                    if(!$conn){
+                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                    }
+                    // Bước 02: Thực hiện truy vấn
+                    $sql = "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ";
+                    $result = mysqli_query($conn,$sql);
+
+                    // Bước 03: Xử lý kết quả truy vấn
+                    if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){
+                ?>
+                           <div class="inbox-message-item">
                                 <div class="checkbox" style="margin-right: -12px;">
                                     <button class="btn">
                                         <img src="images/icon/check_box_outline.png" alt="Select"
@@ -125,21 +157,24 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
                                 </button>
 
+                                
                                 <!-- Message default ( unread ) -->
                                 <div class="message-default" onclick="hide_message(true)">
                                     <div class="message-sender message-content unread">
-                                        <span>Google</span>
+                                        <span>
+                                        <td><?php echo $row['ID']; ?></td>
+                                        </span>
                                     </div>
                                     <div class="message-subject message-content unread">
-                                        <span>Cảnh báo bảo mật</span>
+                                        <span> 
+                                        <td><?php echo $row['subject']; ?></td>
+                                            </span>
                                     </div>
                                     <div class="message-seperator message-content"> - </div>
                                     <div class="message-body message-content">
-                                        <span> Chúng tôi phát hiện thấy có một yêu cầu đăng nhập mới vào Tài khoản
-                                            Google của bạn trên một
-                                            thiết bị Windows. Nếu đây là yêu cầu của bạn, thì bạn không phải làm gì
-                                            thêm. Nếu đây không phải là
-                                            yêu cầu của bạn, thì chúng tôi sẽ giúp bạn bảo mật tài khoản.</span>
+                                        <span>  
+                                        <td><?php echo $row['text']; ?></td>
+                                            </span>
                                     </div>
                                     <div class="space-mail message-content"></div>
                                     <div class="message-date center-text unread">
@@ -164,6 +199,14 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     </div>
                                 </div>
                             </div>
+                
+                <?php
+                        }
+                    }
+                ?>
+                
+ 
+
                             <!-- Message Read  -->
                             <div class="inbox-message-item  message-default-unread">
                                 <div class="checkbox" style="margin-right: -12px;">
@@ -285,25 +328,39 @@ if (!isset($_SESSION['isLoginOK'])) {
                     </div>
                 </div>
 
-                <div class="inbox-content">Welcome, Deepa Mariam George!
-                    <br> <br>
-                    Putin pronounced that Ukrainians and Russians were a "single people." He then elaborated on the
-                    subject in a 5,000-word article that lamented the "artificial division of Russians and Ukrainians."
-                    <br> <br>
-                    Stripped to its essence, Putin's argument was that Ukraine and Ukrainians are part of a larger
-                    "historical Russia" -- and that modern-day Ukraine, which gained independence in 1991, was merely
-                    the by-product of administrative and territorial boundaries cooked up by the Soviet leadership.
-                    <br> <br>
-                    The Russian president made no mention, of course, of the millions of Ukrainians who voted
-                    overwhelmingly in support of independence.
-                    No, in Putin's view, post-Soviet Ukraine became a tool of the West for weakening Russia
-                    <br> <br>.
-                    Ukraine was dragged into a dangerous geopolitical game aimed at turning Ukraine into a barrier
-                    between Europe and Russia, a springboard against Russia," he wrote. "Inevitably, there came a time
-                    when the concept of 'Ukraine is not Russia' was no longer an option. There was a need for the
-                    'anti-Russia' concept which we will never accept."
+
+
+
+                <?php
+                    // Bước 01: Kết nối Database Server
+                    $conn = mysqli_connect('localhost','root','','db_gmail');
+                    mysqli_set_charset($conn, 'UTF8');
+                    if(!$conn){
+                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                    }
+                    // Bước 02: Thực hiện truy vấn
+                    $sql = "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}'  ";
+                    $result = mysqli_query($conn,$sql);
+
+                    // Bước 03: Xử lý kết quả truy vấn
+                    if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){
+                ?>
+
+                
+
+                 <div class="inbox-content">
+                 <td>
+                     <?php echo $row['text']; ?></td>
                     <br> <br>
                 </div>
+
+                <?php
+                        }
+                    }
+                ?>
+                
+
             </div>
         </section>
 

@@ -1,5 +1,6 @@
 <?php require_once "process-login.php"; ?>
 <?php
+    session_start();
 $emailafter = $_SESSION['email2'];
 if (isset($_POST['btnSignIn2'])) {
     $pass  = $_POST['txtPass'];
@@ -21,6 +22,32 @@ if (isset($_POST['btnSignIn2'])) {
         $row = mysqli_fetch_assoc($checkname);
         $name = " " . $row["firstName"] . " " . $row["lastName"] . " ";
         $_SESSION['name'] = $name;
+
+        // Lây tên người gửi
+        $checkname = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE email = '$emailafter' " );
+        $row = mysqli_fetch_assoc($checkname);
+        $name = " " . $row["firstName"] . " " . $row["lastName"] . " ";
+        $_SESSION['name'] = $name;
+
+        // ID của tài khoản đăng nhập
+        $getid = mysqli_query($conn,"SELECT ID FROM tb_user WHERE email = '$emailafter' ");
+        $row = mysqli_fetch_assoc($getid);
+        $id = "".$row["ID"]."";
+        $_SESSION['id'] = $id;
+
+        // Lấy subject
+        $getsubject = mysqli_query($conn,"SELECT subject FROM tb_mail WHERE to_user = '$id' ");
+        $row = mysqli_fetch_assoc($getsubject);
+        $subject = "".$row["subject"]."";
+        $_SESSION['subject'] = $subject;
+        
+        // Lấy nội dung tin nhắn
+        $gettext = mysqli_query($conn,"SELECT text FROM tb_mail WHERE to_user = '$id' ");
+        $row = mysqli_fetch_assoc($gettext);
+        $text = "".$row["text"]."";
+        $_SESSION['text'] = $text;
+
+
         header("location: index.php"); //Chuyển hướng sang index
     } else {
         $error = "Mật khẩu không chính xác. Hãy thử lại hoặc nhấp vào ''Bạn quên mật khẩu'' để đặt lại mật khẩu.";
