@@ -10,19 +10,19 @@
         <div class="popup-content">
             <div class="popup-head">
                 <span class="close-btn">&times;</span>
+                <form class="send_email" action="send-email.php" method="post">
                 <p>Thư mới</p>
             </div>
-
             <div class="send-to">
-                <input type="text" placeholder="Người nhận" required>
+                <input type="email" name="to_user" placeholder="Người nhận" required>
             </div>
 
             <div class="send-to subject">
-                <input type="text" placeholder="Chủ đề" required>
+                <input type="text" name="subject" placeholder="Chủ đề" required>
             </div>
-
-            <button type="button" class="btn-send">Gửi</button>
-            <textarea class="text-message" style="resize:none" name="name" cols="24" rows="4"></textarea>
+            <button type="button" name="submit" class="btn-send">Gửi</button>
+            <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"></textarea>
+        </form>
         </div>
     </div>
 

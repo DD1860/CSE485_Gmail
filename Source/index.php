@@ -145,7 +145,7 @@ $id = " ".$row["ID"]."  "; -->
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
                 ?>
-                           <div class="inbox-message-item">
+                           <div class="inbox-message-item" >
                                 <div class="checkbox" style="margin-right: -12px;">
                                     <button class="btn">
                                         <img src="images/icon/check_box_outline.png" alt="Select"
@@ -344,14 +344,16 @@ $id = " ".$row["ID"]."  "; -->
 
                     // Bước 03: Xử lý kết quả truy vấn
                     if(mysqli_num_rows($result) > 0){
-                        while($row = mysqli_fetch_assoc($result)){
+                        while($row = mysqli_fetch_assoc($result)){       
                 ?>
 
                 
 
-                 <div class="inbox-content">
-                 <td>
-                     <?php echo $row['text']; ?></td>
+                 <div class="inbox-content"> 
+                 <?php 
+                 echo $row['text']; // hiện text
+              
+                  ?>
                     <br> <br>
                 </div>
 
