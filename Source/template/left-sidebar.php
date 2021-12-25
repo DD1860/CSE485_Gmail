@@ -1,5 +1,4 @@
 <section class="left-sidebar">
-
     <div class="left-sidebar-create" id="popup-btn">
         <button class="sidebar-btn-create">
             <img src="images/create.png" alt="create new email" class="sidebar-btn-create-icon">
@@ -165,7 +164,7 @@
             <div class="dot-green"></div>
             <div class="user-name">
                 <?php
-                echo "" . $_SESSION['isLoginOK'] . "";
+                echo "  ".$_SESSION['name']."    ";          
                 ?>
             </div>
         </div>
