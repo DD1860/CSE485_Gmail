@@ -4,7 +4,7 @@
 <head>
   <title>Gmail Đăng nhập</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="css/Login.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -17,16 +17,13 @@
 
 <body>
   <div id="div1">
-    <img src="https://media1.nguoiduatin.vn/media/vu-thu-huong/2019/12/19/anh-google.png" alt="">
+    <img src="images/anh-google.png" alt="">
     <h4>Đăng nhập</h4>
     <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
 
     <form>
 
       <input type="email" name="email" id="email" placeholder="Email hoặc số điện thoại" required>
-      <p class="invalid-feedback">
-        Please provide a valid zip.
-      </p><br>
 
       <div class="col-md-6">
         <a style="text-decoration: none" href="Forget.php">Bạn quên địa chỉ email</a>
@@ -40,7 +37,7 @@
           <a style="text-decoration: none" href="#">Tạo tài khoản</a>
         </div>
         <div class="d-grid  col-4 mx-auto">
-          <button type="button" class="btn btn-primary">Tiếp theo</button>
+         <a href="LoginPassWord.php"> <button type="button" class="btn btn-primary" style="width:100%">Tiếp theo</button></a>
         </div>
       </div>
     </form>
