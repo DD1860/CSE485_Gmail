@@ -25,7 +25,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 <body>
     <div class="container">
         <!-- HEADER -->
-        <?php include 'template/header.php'; ?>
+        <?php include "template/header.php"; ?>
         <!-- Sidebar-left -->
         <?php include 'template/left-sidebar.php'; ?>
         <!-- BODY -->
@@ -131,7 +131,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
                 ?>
-                            <a href="index.php?token=<?php echo $row['ID']; ?>" style="text-decoration: none;">
+                            <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="text-decoration: none;">
                                 <div class="inbox-message-item" >
                                 <div class="checkbox" style="margin-right: -12px;">
                                     <button class="btn">
@@ -259,93 +259,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                 </div>
 
             </div>
-            <div class="open-inbox" id="openingEmail">
-
-                <div class="inbox-menu">
-                    <div class="inbox-menu-group">
-                        <div class="inbox-btn-group">
-
-                            <button class="btn" onclick="hide_message(false)">
-                                <span class="material-icons">
-                                    west
-                                </span>
-                            </button>
-                        </div>
-
-                        <button class="btn">
-                            <img src="images/icon/refresh.png" alt="Refresh" class="btn-icon-sm">
-                        </button>
-
-                        <button class="btn">
-                            <img src="images/icon/more_vert.png" alt="More" class="btn-icon-sm">
-                        </button>
-
-                    </div>
-
-                    <div class="inbox-menu-group">
-
-                        <button class="btn-lg btn-alt">
-                            <div class="inbox-menu-pagination">
-                                1-50 trong số 325
-                            </div>
-                        </button>
-
-                        <div class="inbox-menu-pagination-btn">
-                            <button class="btn btn-pagination">
-                                <span class="material-icons">
-                                    keyboard_arrow_left
-                                </span>
-                            </button>
-
-                            <button class="btn btn-pagination">
-                                <span class="material-icons">
-                                    keyboard_arrow_right
-                                </span>
-                            </button>
-                        </div>
-
-                        <div class="inbox-btn-group">
-                            <button class="btn-alt">
-                                <img src="images/icon/tool.png" alt="Input tools on/off"
-                                    class="btn-icon-sm btn-icon-alt">
-                            </button>
-
-                            <button class="btn-sm btn-alt">
-                                <img src="images/icon/arrow_drop_down.png" alt="Select input tool"
-                                    class="btn-icon-sm btn-icon-alt">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <?php
-
-                    $conn = mysqli_connect('localhost','root','','db_gmail');
-                    mysqli_set_charset($conn, 'UTF8');
-                    if(!$conn){
-                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                    }
-                    $text = $_GET['token'];
-                    $result = mysqli_query($conn,"SELECT text FROM tb_mail WHERE to_user = '{$_SESSION['id']}' AND ID = $text ");
-                    $row = mysqli_fetch_assoc($result);      
-                ?>
-
-                 <div class="inbox-content"> 
-                 <?php 
-                 echo $row['text']; // hiện text
-              
-                  ?>
-                    <br> <br>
-                </div>
-
-                <?php
-                ?>
-                
-
-            </div>
         </section>
 
         <!-- RIGHT SIDEBAR -->
@@ -360,18 +273,6 @@ if (!isset($_SESSION['isLoginOK'])) {
             x.style.display = 'block';
         } else {
             x.style.display = 'none';
-        }
-    }
-
-    function hide_message(input) {
-        let hide = document.getElementById("displayEmail");
-        let open = document.getElementById("openingEmail");
-        if (input) {
-            hide.style.cssText = "display: none";
-            open.classList.remove("open-inbox");
-        } else {
-            hide.style.cssText = "";
-            open.classList.add("open-inbox");
         }
     }
     </script>

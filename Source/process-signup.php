@@ -1,7 +1,7 @@
 <?php require_once "process-login.php"; ?>
 <?php
     session_start();
-$emailafter = $_SESSION['email2'];
+    $emailafter = $_SESSION['email2'];
 if (isset($_POST['btnSignIn2'])) {
     // Bước 01: Kết nối Database Server
     $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');

