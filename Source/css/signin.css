@@ -14,9 +14,15 @@
   margin-left:240px;
 
 }
-label{
-  font-size: 17px;
-  opacity: 0.9;
+#gmail{
+  position: relative;
+  display: block;
+  top: -33px;
+  left: 375px;
+  font-family:roboto;
+  color: #333;
+  font-size: 16px;
+  cursor: default;
 }
 select{
   border: 1px solid white;   
@@ -34,10 +40,5 @@ li{
   text-decoration: none;
   color: #5c5959;
   font-size: 15px;
-}
-
-.register{
- margin: auto;
- margin-left: 100px;
-
+  padding: 30px;
 }
