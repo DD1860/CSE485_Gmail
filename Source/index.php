@@ -6,22 +6,8 @@ if (!isset($_SESSION['isLoginOK'])) {
   header("location:SignUp.php");
 }
 ?>
-
-<!-- + biết email đăng nhập 
-// + cần get id 
-// $getid = "Select ID form tb_user where email = '$_SESSION['isLoginOK']' "; // lấy ra id của user thông qua email đã đăng nhập
-// ex : output = 1
-// // lấy subjetc
-// select subject from tb_mail where to_user = '$getid'
-// // lấy nội dung tin
-// select text from tb_mail where to_user = '$getid' -->
-<!-- $conn = mysqli_connect('localhost','root','','db_gmail');
-mysqli_set_charset($conn, 'UTF8');
-$_SESSION['isLoginOK'] = $a;
-$result = mysqli_query($conn,"SELECT ID FROM tb_user WHERE email = '$a' ");
-$row = mysqli_fetch_assoc($result);
-$id = " ".$row["ID"]."  "; -->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,7 +131,8 @@ $id = " ".$row["ID"]."  "; -->
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
                 ?>
-                           <div class="inbox-message-item" >
+                            <a href="index.php?token=<?php echo $row['ID']; ?>" style="text-decoration: none;">
+                                <div class="inbox-message-item" >
                                 <div class="checkbox" style="margin-right: -12px;">
                                     <button class="btn">
                                         <img src="images/icon/check_box_outline.png" alt="Select"
@@ -159,6 +146,7 @@ $id = " ".$row["ID"]."  "; -->
 
                                 
                                 <!-- Message default ( unread ) -->
+                               
                                 <div class="message-default" onclick="hide_message(true)">
                                     <div class="message-sender message-content unread">
                                         <span>
@@ -181,6 +169,7 @@ $id = " ".$row["ID"]."  "; -->
                                         <span>17:25 PM</span>
                                     </div>
                                 </div>
+                        
 
                                 <div class="message-group-hidden">
                                     <div class="inbox-message-item-options">
@@ -199,6 +188,7 @@ $id = " ".$row["ID"]."  "; -->
                                     </div>
                                 </div>
                             </div>
+                            </a>
                 
                 <?php
                         }
@@ -332,22 +322,16 @@ $id = " ".$row["ID"]."  "; -->
 
 
                 <?php
-                    // Bước 01: Kết nối Database Server
+
                     $conn = mysqli_connect('localhost','root','','db_gmail');
                     mysqli_set_charset($conn, 'UTF8');
                     if(!$conn){
                         die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                     }
-                    // Bước 02: Thực hiện truy vấn
-                    $sql = "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}'  ";
-                    $result = mysqli_query($conn,$sql);
-
-                    // Bước 03: Xử lý kết quả truy vấn
-                    if(mysqli_num_rows($result) > 0){
-                        while($row = mysqli_fetch_assoc($result)){       
+                    $text = $_GET['token'];
+                    $result = mysqli_query($conn,"SELECT text FROM tb_mail WHERE to_user = '{$_SESSION['id']}' AND ID = $text ");
+                    $row = mysqli_fetch_assoc($result);      
                 ?>
-
-                
 
                  <div class="inbox-content"> 
                  <?php 
@@ -358,8 +342,6 @@ $id = " ".$row["ID"]."  "; -->
                 </div>
 
                 <?php
-                        }
-                    }
                 ?>
                 
 

@@ -1,26 +1,22 @@
 <?php
     session_start();
-    if(isset($_POST['submit'])){ 
+    if(isset($_POST['sendmail'])){ 
     $to_user = $_POST['to_user'];
-    $subject = $_POST['subject'];
-    $text = $_POST['content-text'];
-    // $to_user =  '" . mysql_real_escape_string($pass)."';
-    // $to_user = isset($_POST['to_user'])?(string)(int)$_POST['to_user']:false;
-    // $subject = isset($_POST['subject'])?(string)(int)$_POST['subject']:false;
-    // $text = isset($_POST['content-text'])?(string)(int)$_POST['content-text']:false;
-    
     $conn = mysqli_connect('localhost','root','','db_gmail');
+    mysqli_set_charset($conn, 'UTF8');
     if(!$conn){
         die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
     }
     $id =  $_SESSION['id'];
+    $subject = $_POST['subject'];
+    $text = mysqli_real_escape_string($conn, $_POST['content-text']);
     $sql = "INSERT INTO tb_mail VALUES (NULL, '$id','$to_user','$subject','$text','123456')";
     $ketqua = mysqli_query($conn,$sql);
     if(!$ketqua){
         $error = " Gửi tin nhắn thất bại ";
         header("location: index.php?error=$error"); 
     }else{
-        $success = "Gửi tin nhắn thất bại";
+        $success = "Gửi tin nhắn thành công";
         header("location: index.php?success=$success"); 
     }
     mysqli_close($conn);

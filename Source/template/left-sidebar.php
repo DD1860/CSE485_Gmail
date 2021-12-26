@@ -6,26 +6,31 @@
         </button>
     </div>
     <!-- popup compose gmail -->
+    <form class="send_email" action="send-mail.php" method="post">
     <div class="popup">
         <div class="popup-content">
             <div class="popup-head">
                 <span class="close-btn">&times;</span>
-                <form class="send_email" action="send-email.php" method="post">
                 <p>Thư mới</p>
             </div>
             <div class="send-to">
-                <input type="email" name="to_user" placeholder="Người nhận" required>
+                <input type="text" name="to_user" placeholder="Người nhận" required>
             </div>
 
             <div class="send-to subject">
                 <input type="text" name="subject" placeholder="Chủ đề" required>
             </div>
-            <button type="button" name="submit" class="btn-send">Gửi</button>
+            <button type="submit" name="sendmail" class="btn-send">Gửi</button>
+            <?php
+                    if(isset($_GET['success'])){ 
+						echo"<script>alert('Tin nhắn đã được gửi đi thành công !');</script>";
+                    }
+
+                ?>
             <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"></textarea>
-        </form>
         </div>
     </div>
-
+    </form>
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
             <li class="category-item active">

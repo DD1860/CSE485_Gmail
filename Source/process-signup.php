@@ -3,7 +3,6 @@
     session_start();
 $emailafter = $_SESSION['email2'];
 if (isset($_POST['btnSignIn2'])) {
-    $pass  = $_POST['txtPass'];
     // Bước 01: Kết nối Database Server
     $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
     mysqli_set_charset($conn, 'UTF8');
@@ -11,6 +10,7 @@ if (isset($_POST['btnSignIn2'])) {
         die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
     }
     // Bước 02: Thực hiện truy vấn
+    $pass = mysqli_real_escape_string($conn, $_POST['txtPass']);
     $sql = "SELECT * FROM tb_user WHERE email = '$emailafter' AND password ='$pass'";
     // Ở đây còn có các vấn đề về tính hợp lệ dữ liệu nhập vào FORM
     // Nghiêm trọng: lỗi SQL Injection
