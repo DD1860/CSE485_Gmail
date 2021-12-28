@@ -8,6 +8,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -112,11 +113,11 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                     <div class="content">
                         <div class="mail">
-                            
 
 
-                       <!-- Vùng này là Dữ liệu cần lặp lại hiển thị từ CSDL -->
-                <?php
+
+                            <!-- Vùng này là Dữ liệu cần lặp lại hiển thị từ CSDL -->
+                            <?php
                     // Bước 01: Kết nối Database Server
                     $conn = mysqli_connect('localhost','root','','db_gmail');
                     mysqli_set_charset($conn, 'UTF8');
@@ -124,78 +125,96 @@ if (!isset($_SESSION['isLoginOK'])) {
                         die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                     }
                     // Bước 02: Thực hiện truy vấn
-                    $sql = "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ";
-                    $result = mysqli_query($conn,$sql);
+                    $result = mysqli_query($conn,"SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ");
+// 
+                    // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
 
                     // Bước 03: Xử lý kết quả truy vấn
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
                 ?>
                             <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="text-decoration: none;">
-                                <div class="inbox-message-item" >
-                                <div class="checkbox" style="margin-right: -12px;">
-                                    <button class="btn">
-                                        <img src="images/icon/check_box_outline.png" alt="Select"
+                                <div class="inbox-message-item">
+                                    <div class="checkbox" style="margin-right: -12px;">
+                                        <button class="btn">
+                                            <img src="images/icon/check_box_outline.png" alt="Select"
+                                                class="message-btn-icon">
+                                        </button>
+                                    </div>
+
+                                    <button class="btn star" style="margin: 0;">
+                                        <img src="images/icon/star_black.png" alt="Not starred"
                                             class="message-btn-icon">
                                     </button>
-                                </div>
 
-                                <button class="btn star" style="margin: 0;">
-                                    <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
-                                </button>
 
-                                
-                                <!-- Message default ( unread ) -->
-                               
-                                <div class="message-default" onclick="hide_message(true)">
-                                    <div class="message-sender message-content unread">
-                                        <span>
-                                        <td><?php echo $row['ID']; ?></td>
-                                        </span>
-                                    </div>
-                                    <div class="message-subject message-content unread">
-                                        <span> 
-                                        <td><?php echo $row['subject']; ?></td>
+                                    <!-- Message default ( unread ) -->
+
+                                    <div class="message-default" onclick="hide_message(true)">
+                                        <div class="message-sender message-content unread">
+                                            <span>
+                                                <?php
+            
+                                         echo $row['from_user']; 
+                                         ?>
+
                                             </span>
-                                    </div>
-                                    <div class="message-seperator message-content"> - </div>
-                                    <div class="message-body message-content">
-                                        <span>  
-                                        <td><?php echo $row['text']; ?></td>
+                                        </div>
+                                        <div class="message-subject message-content unread">
+                                            <span>
+                                                <?php echo $row['subject']; ?>
                                             </span>
+                                        </div>
+                                        <div class="message-seperator message-content"> - </div>
+                                        <div class="message-body message-content">
+                                            <span>
+                                                <?php echo $row['text']; ?>
+                                            </span>
+                                        </div>
+                                        <div class="space-mail message-content"></div>
+                                        <div class="message-date center-text unread">
+                                            <span>17:25 PM</span>
+                                        </div>
                                     </div>
-                                    <div class="space-mail message-content"></div>
-                                    <div class="message-date center-text unread">
-                                        <span>17:25 PM</span>
-                                    </div>
-                                </div>
-                        
 
-                                <div class="message-group-hidden">
-                                    <div class="inbox-message-item-options">
-                                        <button class="btn">
-                                            <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/drafts.png" alt="Mark as unread" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
-                                        </button>
+
+                                    <div class="message-group-hidden">
+                                        <div class="inbox-message-item-options">
+                                            <button class="btn">
+                                                <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
+                                            </button>
+
+
+                                            <!-- xóa tin nhắn  -->
+                                            <!-- <button class="btn" name="delete" method="post">
+                                                <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm"> -->
+                                      
+                                                
+                                                <form class="btn" action="delete_employee.php?id=<?php echo $row['ID']; ?>"><img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
+                                                        </form>
+
+
+
+
+
+                                            <button class="btn">
+                                                <img src="images/icon/drafts.png" alt="Mark as unread"
+                                                    class="btn-icon-sm">
+                                            </button>
+                                            <button class="btn">
+                                                <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </a>
-                
-                <?php
+
+                            <?php
                         }
                     }
                 ?>
-                
- 
+
+
 
                             <!-- Message Read  -->
                             <div class="inbox-message-item  message-default-unread">

@@ -105,9 +105,9 @@ if (!isset($_SESSION['isLoginOK'])) {
                  <br> <br>
              </div>
             <div class="inbox-content">
-                <?php
+                <p><?php
                 echo $row['text']; // hiện text
-                ?>
+                ?></p>
                 <br> <br>
               
                 <!-- button trả lời & chuyển tiếp -->
