@@ -7,29 +7,29 @@
     </div>
     <!-- popup compose gmail -->
     <form class="send_email" action="send-mail.php" method="post">
-    <div class="popup">
-        <div class="popup-content">
-            <div class="popup-head">
-                <span class="close-btn">&times;</span>
-                <p>Thư mới</p>
-            </div>
-            <div class="send-to">
-                <input type="text" name="to_user" placeholder="Người nhận" required>
-            </div>
+        <div class="popup">
+            <div class="popup-content">
+                <div class="popup-head">
+                    <span class="close-btn">&times;</span>
+                    <p>Thư mới</p>
+                </div>
+                <div class="send-to">
+                    <input type="text" name="to_user" placeholder="Người nhận" required>
+                </div>
 
-            <div class="send-to subject">
-                <input type="text" name="subject" placeholder="Chủ đề" required>
-            </div>
-            <button type="submit" name="sendmail" class="btn-send">Gửi</button>
-            <?php
-                    if(isset($_GET['success'])){ 
-						echo"<script>alert('Tin nhắn đã được gửi đi thành công !');</script>";
-                    }
+                <div class="send-to subject">
+                    <input type="text" name="subject" placeholder="Chủ đề" required>
+                </div>
+                <button type="submit" name="sendmail" class="btn-send">Gửi</button>
+                <?php
+                if (isset($_GET['success'])) {
+                    echo "<script>alert('Tin nhắn đã được gửi đi thành công !');</script>";
+                }
 
                 ?>
-            <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"></textarea>
+                <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"></textarea>
+            </div>
         </div>
-    </div>
     </form>
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
@@ -38,7 +38,14 @@
                     <img src="images/icon/inbox.png" style="opacity: 1;">
                     <span class="left-sidebar-icon">Hộp thư đến</span>
                 </div>
-                <span class="category-item-number">11</span>
+                <span class="category-item-number">
+                    <?php
+                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                    $data = mysqli_fetch_assoc($result);
+                    echo $data['number'];
+                    ?>
+                </span>
             </li>
 
             <li class="category-item">
@@ -169,7 +176,7 @@
             <div class="dot-green"></div>
             <div class="user-name">
                 <?php
-                echo "  ".$_SESSION['name']."    ";          
+                echo "  " . $_SESSION['name'] . "    ";
                 ?>
             </div>
         </div>
@@ -196,15 +203,15 @@
 </section>
 <!-- Javascrip compose popup -->
 <script>
-let btnpopup = document.getElementById("popup-btn");
-let popup = document.querySelector(".popup");
-let closeBtn = document.querySelector(".close-btn");
-// Hiển thị popup khi nhấp chuột vào button
-btnpopup.onclick = function() {
-    popup.style.display = "block"
-}
-// Đóng popup khi ấn vào nút đóng
-closeBtn.onclick = function() {
-    popup.style.display = "none"
-}
+    let btnpopup = document.getElementById("popup-btn");
+    let popup = document.querySelector(".popup");
+    let closeBtn = document.querySelector(".close-btn");
+    // Hiển thị popup khi nhấp chuột vào button
+    btnpopup.onclick = function() {
+        popup.style.display = "block"
+    }
+    // Đóng popup khi ấn vào nút đóng
+    closeBtn.onclick = function() {
+        popup.style.display = "none"
+    }
 </script>

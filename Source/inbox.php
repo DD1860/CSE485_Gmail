@@ -58,7 +58,12 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                     <button class="btn-lg btn-alt">
                         <div class="inbox-menu-pagination">
-                            1-50 trong số 325
+                            1-50 trong số <?php
+                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                    $data = mysqli_fetch_assoc($result);
+                    echo $data['number'];
+                    ?>
                         </div>
                     </button>
 

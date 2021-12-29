@@ -11,7 +11,7 @@
 /* MAIL */
 
 .inbox {
-	overflow: hidden;
+	overflow-y: auto;
 }
 
 .inbox-menu {

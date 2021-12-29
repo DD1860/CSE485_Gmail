@@ -15,10 +15,10 @@ if (!isset($_SESSION['isLoginOK'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hộp thư đến - @username - Gmail</title>
     <link rel="icon" type="image/png" href="images/favicon-gmail.png">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/properties.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/reset.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/properties.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/style.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/general.css">
     <!-- Setup using Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -26,7 +26,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 <body>
     <div class="container">
         <!-- HEADER -->
-        <?php include "template/header.php"; ?>
+        <?php include 'template/header.php'; ?>
         <!-- Sidebar-left -->
         <?php include 'template/left-sidebar.php'; ?>
         <!-- BODY -->
@@ -132,7 +132,8 @@ if (!isset($_SESSION['isLoginOK'])) {
                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                             }
                             // Bước 02: Thực hiện truy vấn
-                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ");
+                            $search = $_GET['search'];
+                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' AND subject LIKE '%$search%' OR text LIKE '%$search%'");
                             // 
                             // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
 
@@ -274,11 +275,9 @@ if (!isset($_SESSION['isLoginOK'])) {
 
             </div>
         </section>
-
         <!-- RIGHT SIDEBAR -->
         <?php include 'template/right-sidebar.php'; ?>
     </div>
-
     <!-- Script -->
     <script type="text/javascript">
         function click_show_more() {

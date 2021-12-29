@@ -6,18 +6,18 @@
                 <span class="material-icons">menu</span>
             </button>
         </div>
-        <a href="#" class="header-logo">
+        <a href="index.php" class="header-logo">
             <img src="images/logo_gmail.png" alt="Gmail_Logo">
         </a>
     </div>
     
-    <form class="header-middle" action="">
+    <form class="header-middle" action="search.php">
         <div class="icons">
             <button id="js-header-search" class="btn tooltip" data-info="Search">
                 <span class="material-icons">search</span>
             </button>
         </div>
-        <input type="search" class="header-middle-input" placeholder="Tìm kiếm trong thư">
+        <input type="search" class="header-middle-input" name="search"  placeholder="Tìm kiếm trong thư">
         <div class="icons">
             <button id="js-header-middle" class="btn tooltip" data-info="Search">
                 <span class="material-icons">clear</span>
