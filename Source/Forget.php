@@ -14,15 +14,17 @@
 
 <body>
   <div id="div1">
+    
     <img src="images/anh-google.png" alt="">
     <h4>Tìm email của bạn</h4>
     <p>Nhập số điện thoại hoặc email khôi phục</p>
 
     <input type="text" name="email" id="email" placeholder="Số điện thoại hoặc email" required><br>
-    
+
     <div class="d-grid  col-4 "style="margin:10% 0% 30% 60%;">
-      <a href="https://accounts.google.com/ServiceLogin/queryname?service=mail&passive=1209600&osid=1&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F%3Fpli%3D1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F%3Fpli%3D1&emr=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><button type="button" class="btn btn-primary" style="width:100%;">Tiếp theo</button></a>
+      <button type="button" class="btn btn-primary" style="width:100%;">Tiếp theo</button>
     </div>
+   
   </div>
   <div style="margin-left: 36.5%; font-size: 15px; width: 26%;">
 
