@@ -65,10 +65,12 @@
             </li>
 
             <li class="category-item">
+                <a href="sent.php">
                 <div>
                     <img src="images/icon/send.png">
                     <span class="left-sidebar-icon">Đã gửi</span>
                 </div>
+                </a>
             </li>
 
             <li class="category-item">
