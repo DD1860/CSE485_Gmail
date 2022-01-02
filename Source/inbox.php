@@ -103,12 +103,26 @@ if (!isset($_SESSION['isLoginOK'])) {
             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}' AND ID = $text ");
             $row = mysqli_fetch_assoc($result);
             ?>
+            <div class="auto-flow">
              <div class="details-subject">
                  <?php
              echo $row['subject'];
                  ?>
                  <br> <br>
              </div>
+
+        <div class="info-inbox">
+        <div class="icons">
+                <img src="images/avatar.png" class="avatar-profile">
+        </div>
+        <div class="user-name" style="font-weight:bold">
+                <?php
+                echo "  " . $_SESSION['name'] . "    ";
+                ?>
+            </div>
+            
+        </div>
+
             <div class="inbox-content">
                 <p><?php
                 echo $row['text']; // hiện text
@@ -124,6 +138,7 @@ if (!isset($_SESSION['isLoginOK'])) {
         </section>
         <!-- RIGHT SIDEBAR -->
         <?php include 'template/right-sidebar.php'; ?>
+    </div>
     </div>
     <!-- Script -->
     <script type="text/javascript">
