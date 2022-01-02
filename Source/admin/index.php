@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/admin.css" />
-  <title>Admin Dashboard</title>
+  <title>Admin Gmail Dashboard</title>
 </head>
 
 <body>
@@ -18,9 +18,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
      
-      <a class="navbar-brand me-auto ms-lg-0 ms-3l lead text-muted " href="#">
-        <img src="images/logo_gmail copy.png" alt="">
-        Admin
+      <a class="navbar-brand me-auto ms-lg-0 ms-3l lead  " href="#">
+      <img src="img/logo-gmail-2.png" alt=""width="30px" height="30px">
+        Admin Gmail
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
         aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
           </div>
         </form>
         <ul class="navbar-nav">
-          <a class="nav-link  ms-2" href="#" aria-expanded="false" <li> <i class="bi bi-person-fill"></i>Logout</li>
+          <a class="nav-link  ms-2" href="login.php" aria-expanded="false" <li> <i class="bi bi-person-fill"></i>Logout</li>
           </a>
         </ul>
       </div>
@@ -44,7 +44,7 @@
   </nav>
   <!-- top navigation bar -->
   <!-- offcanvas -->
-  <div class="offcanvas offcanvas-start sidebar-nav bg-dark mt-2" tabindex="-1" id="sidebar">
+  <div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1" id="sidebar">
     <div class="offcanvas-body p-0">
       <nav class="navbar-dark">
         <ul class="navbar-nav">
@@ -64,7 +64,7 @@
           </li>
 
           <li>
-            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
+            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="process-user.php">
               <span class="me-2"><i class="bi bi-people"></i></i></span>
               <span>User</span>
             </a>
@@ -100,7 +100,6 @@
     </div>
   </div>
   <!-- offcanvas -->
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 </body>
 
