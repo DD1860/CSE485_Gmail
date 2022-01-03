@@ -21,10 +21,9 @@ if (!isset($_SESSION['isLoginOK'])) {
     <link rel="stylesheet" href="css/general.css">
     <!-- Setup using Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
 
 <body>
-    <div class="container">
+    <div class="container" class="form-signin" action="process-signup.php" method="post">
         <!-- HEADER -->
         <?php include "template/header.php"; ?>
         <!-- Sidebar-left -->

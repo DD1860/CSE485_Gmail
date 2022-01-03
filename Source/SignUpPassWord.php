@@ -19,7 +19,7 @@
     <p>Hãy nhập mật khẩu của bạn</p>
 
     <div>
-      <form class="form-signin" action="process-signup.php" method="post">
+      <form class="form-signin" action="process-signupPW.php" method="post">
         <input class="input1" type="password" id="inputPassword" name="txtPass" placeholder="Nhập mật khẩu của bạn" required><br>
         <?php
         if (isset($_GET['error'])) {

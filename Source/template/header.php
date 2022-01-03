@@ -1,4 +1,5 @@
-<header class="header">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<header class="header" >
 
     <div class="header-left">
         <div class="icons">
@@ -46,11 +47,23 @@
                 <span class="material-icons">apps</span>
             </button>
         </div>
-        <div class="icons">
-            <button id="header-profile" class="btn tooltip">
-                <img src="images/avatar.png" class="btn-icon header-profile">
-            </button>
-        </div>
+        <div class="dropdown">
+                    <div class="icons">
+                        <button id="header-profile" class="btn tooltip">
+                            <img src="images/avatar.png" class="btn-icon header-profile">
+                        </button>
+                        <div class="dropdown-content">
+                            <img src="images/avatar.png" class="avatar"><br>
+                            <button style="border-radius: 8px;">Quản lý Tài khoản Google của bạn</button><br>
+                            <button style="border: none; background-color:white">
+                              <a href="SignUp.php"><i class="bi bi-person-plus" style="color:dimgray">Thêm một tài khoản khác</i></a>
+                            </button>
+                            <a href="process-logout.php"><button type="submit" style="width:150px; height: 30px">Đăng xuất</button></a>
+                           
+                        </div> 
+                    </div>
+                </div>
+
     </div>
 </header>
 
@@ -58,6 +71,37 @@
 <!-- CSS Header -->
 
 <style>
+    .dropdown{
+        position: relative;
+  display: inline-block;
+    }
+    .dropdown-content {
+	background-color: white;
+    display: none;
+    position: absolute;
+    min-width: 350px;
+    min-height: 360px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    right: 10px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 50px;
+  }
+
+    .dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+.avatar {
+      width: 80px;
+      height: 80px;
+  }
 
 .header {
 	display: grid;
