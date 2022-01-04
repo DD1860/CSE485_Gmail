@@ -25,12 +25,11 @@ include_once 'index.php';
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">firstName</th>
-                    <th scope="col">lastName</th>
-                    <th scope="col">email</th>
-                    <th scope="col">password</th>
-                    <th scope="col">Xóa</th>
-                    
+                    <th scope="col">fromUser</th>
+                    <th scope="col">toUser</th>
+                    <th scope="col">subject</th>
+                    <th scope="col">text</th>
+                    <th scope="col">time</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +41,7 @@ include_once 'index.php';
                         die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                     }
                     // Bước 02: Thực hiện truy vấn
-                    $sql = "SELECT * FROM tb_user";
+                    $sql = "SELECT * FROM tb_mail";
                     $result = mysqli_query($conn,$sql);
                     // Bước 03: Xử lý kết quả truy vấn
                     if(mysqli_num_rows($result) > 0){
@@ -50,11 +49,12 @@ include_once 'index.php';
                 ?>
                             <tr>
                                 <th scope="row"><?php echo $row['ID']; ?></th>
-                                <td><?php echo $row['firstNam']; ?></td>
-                                <td><?php echo $row['lastName']; ?></td>
-                                <td><?php echo $row['email']; ?></td>
-                                <td><?php echo $row['password']; ?></td>
-                                <td><a href="delete_user.php?ID=<?php echo $row['ID']; ?>"><i class="bi bi-trash"></i></a></td>
+                                <td><?php echo $row['from_user']; ?></td>
+                                <td><?php echo $row['to_user']; ?></td>
+                                <td><?php echo $row['subject']; ?></td>
+                                <td><?php echo $row['text']; ?></td>
+                                <td><?php echo $row['time']; ?></td>
+                                
                             </tr>
                 <?php
                         }

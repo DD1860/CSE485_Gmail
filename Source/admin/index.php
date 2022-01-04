@@ -18,7 +18,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
      
-      <a class="navbar-brand me-auto ms-lg-0 ms-3l lead  " href="#">
+      <a class="navbar-brand me-auto ms-lg-0 ms-3l lead  " href="index.php">
       <img src="img/logo-gmail-2.png" alt=""width="30px" height="30px">
         Admin Gmail
       </a>
@@ -54,7 +54,7 @@
             </div>
           </li>
           <li>
-            <a href="#" class="nav-link px-3 active">
+            <a href="index.php" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
               <span>Dashboard</span>
             </a>
@@ -70,7 +70,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link px-3">
+            <a href="email.php" class="nav-link px-3">
               <span class="me-2"><i class="bi bi-book-fill"></i></span>
               <span>In box</span>
             </a>
