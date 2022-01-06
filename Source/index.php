@@ -44,10 +44,11 @@ if (!isset($_SESSION['isLoginOK'])) {
                                 <img src="images/icon/arrow_drop_down.png" alt="Select" class="btn-icon-sm">
                             </button>
                         </div>
-
-                        <button class="btn">
-                            <img src="images/icon/refresh.png" alt="Refresh" class="btn-icon-sm">
-                        </button>
+                        <a href="index.php?refresh">
+                            <button class="btn">
+                                <img src="images/icon/refresh.png" alt="Refresh" class="btn-icon-sm">
+                            </button>
+                        </a>
 
                         <button class="btn">
                             <img src="images/icon/more_vert.png" alt="More" class="btn-icon-sm">
@@ -89,11 +90,13 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                         <div class="inbox-btn-group">
                             <button class="btn-alt">
-                                <img src="images/icon/tool.png" alt="Input tools on/off" class="btn-icon-sm btn-icon-alt">
+                                <img src="images/icon/tool.png" alt="Input tools on/off"
+                                    class="btn-icon-sm btn-icon-alt">
                             </button>
 
                             <button class="btn-sm btn-alt">
-                                <img src="images/icon/arrow_drop_down.png" alt="Select input tool" class="btn-icon-sm btn-icon-alt">
+                                <img src="images/icon/arrow_drop_down.png" alt="Select input tool"
+                                    class="btn-icon-sm btn-icon-alt">
                             </button>
                         </div>
                     </div>
@@ -140,71 +143,75 @@ if (!isset($_SESSION['isLoginOK'])) {
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                    <div class="inbox-message-item">
-                                        <div class="checkbox" style="margin-right: -12px;">
-                                            <button class="btn">
-                                                <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
-                                            </button>
-                                        </div>
+                            <div class="inbox-message-item">
+                                <div class="checkbox" style="margin-right: -12px;">
+                                    <button class="btn">
+                                        <img src="images/icon/check_box_outline.png" alt="Select"
+                                            class="message-btn-icon">
+                                    </button>
+                                </div>
 
-                                        <button class="btn star" style="margin: 0;">
-                                            <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
-                                        </button>
+                                <button class="btn star" style="margin: 0;">
+                                    <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
+                                </button>
 
 
-                                        <!-- Message default ( unread ) -->
+                                <!-- Message default ( unread ) -->
 
-                                        <div class="message-default">
-                                            <div class="message-sender message-content unread">
-                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
-                                                    <span>
-                                                        <?php
+                                <div class="message-default">
+                                    <div class="message-sender message-content unread">
+                                        <a href="inbox.php?token=<?php echo $row['ID']; ?>"
+                                            style="color:black;text-decoration: none;">
+                                            <span>
+                                                <?php
 
                                                         echo $row['from_user'];
                                                         ?>
 
-                                                    </span>
-                                            </div>
-
-                                            <div class="message-subject message-content unread">
-                                                <span>
-                                                    <?php echo $row['subject']; ?>
-                                                </span>
-                                            </div>
-                                            </a>
-                                            <div class="message-seperator message-content"> - </div>
-                                            <div class="message-body message-content">
-                                            <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
-                                                <span>
-                                                    <?php echo $row['text']; ?>
-                                                </span>
-                                            </a>
-                                            </div>
-                                            <div class="space-mail message-content"></div>
-                                            <div class="message-date center-text unread">
-                                                <span><?php echo $row['time']; ?></span>
-                                            </div>
-                                        </div>
-                                        <div class="message-group-hidden">
-                                            <div class="inbox-message-item-options">
-                                                <button class="btn">
-                                                    <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
-                                                </button>
-
-
-                                                <!-- xóa tin nhắn  -->
-                                                <button class="btn" onclick="location.href='delete-mail.php?token=<?php echo $row['ID']; ?>'">
-                                                    <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
-                                                </button>
-                                                <button class="btn">
-                                                    <img src="images/icon/drafts.png" alt="Mark as unread" class="btn-icon-sm">
-                                                </button>
-                                                <button class="btn">
-                                                    <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
-                                                </button>
-                                            </div>
-                                        </div>
+                                            </span>
                                     </div>
+
+                                    <div class="message-subject message-content unread">
+                                        <span>
+                                            <?php echo $row['subject']; ?>
+                                        </span>
+                                    </div>
+                                    </a>
+                                    <div class="message-seperator message-content"> - </div>
+                                    <div class="message-body message-content">
+                                        <a href="inbox.php?token=<?php echo $row['ID']; ?>"
+                                            style="color:black;text-decoration: none;">
+                                            <span>
+                                                <?php echo $row['text']; ?>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="space-mail message-content"></div>
+                                    <div class="message-date center-text unread">
+                                        <span><?php echo $row['time']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="message-group-hidden">
+                                    <div class="inbox-message-item-options">
+                                        <button class="btn">
+                                            <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
+                                        </button>
+
+
+                                        <!-- xóa tin nhắn  -->
+                                        <button class="btn"
+                                            onclick="location.href='delete-mail.php?token=<?php echo $row['ID']; ?>'">
+                                            <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
+                                        </button>
+                                        <button class="btn">
+                                            <img src="images/icon/drafts.png" alt="Mark as unread" class="btn-icon-sm">
+                                        </button>
+                                        <button class="btn">
+                                            <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
                             <?php
                                 }
@@ -217,7 +224,8 @@ if (!isset($_SESSION['isLoginOK'])) {
                             <div class="inbox-message-item  message-default-unread">
                                 <div class="checkbox" style="margin-right: -12px;">
                                     <button class="btn">
-                                        <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
+                                        <img src="images/icon/check_box_outline.png" alt="Select"
+                                            class="message-btn-icon">
                                     </button>
                                 </div>
 
@@ -258,7 +266,8 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
                                         </button>
                                         <button class="btn">
-                                            <img src="images/icon/mark_as_unread.png" alt="Mark as unread" class="btn-icon-sm">
+                                            <img src="images/icon/mark_as_unread.png" alt="Mark as unread"
+                                                class="btn-icon-sm">
                                         </button>
                                         <button class="btn">
                                             <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
@@ -281,14 +290,14 @@ if (!isset($_SESSION['isLoginOK'])) {
 
     <!-- Script -->
     <script type="text/javascript">
-        function click_show_more() {
-            var x = document.getElementById('show-more');
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-            } else {
-                x.style.display = 'none';
-            }
+    function click_show_more() {
+        var x = document.getElementById('show-more');
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
         }
+    }
     </script>
 
 </body>

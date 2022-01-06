@@ -35,7 +35,7 @@ if (!isset($_SESSION['isLoginOK'])) {
            <div class="inbox-menu">
                 <div class="inbox-menu-group">
                     <div class="inbox-btn-group">
-                        <a href="index.php" style="text-decoration:none;">
+                        <a href="sent.php" style="text-decoration:none;">
                             <button class="btn">
                                 <span class="material-icons">
                                     west
@@ -100,7 +100,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
             }
             $token = $_GET['token'];
-            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE to_user = '{$_SESSION['id']}' AND ID = $token ");
+            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' AND ID = $token ");
             $row = mysqli_fetch_assoc($result);
             ?>
             <div class="auto-flow">

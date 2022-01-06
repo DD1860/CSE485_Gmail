@@ -34,10 +34,12 @@
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
             <li class="category-item active">
+                <a href="index.php" style="text-decoration:none;color:var(--red);">
                 <div>
                     <img src="images/icon/inbox.png" style="opacity: 1;">
                     <span class="left-sidebar-icon">Hộp thư đến</span>
                 </div>
+                </a>
                 <span class="category-item-number">
                     <?php
                     $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
@@ -65,7 +67,7 @@
             </li>
 
             <li class="category-item">
-                <a href="sent.php">
+                <a href="sent.php" style="text-decoration:none;color:black">
                 <div>
                     <img src="images/icon/send.png">
                     <span class="left-sidebar-icon">Đã gửi</span>

@@ -122,21 +122,18 @@ if (!isset($_SESSION['isLoginOK'])) {
                     <div class="content">
                         <div class="mail">
 
-
-                            <!-- Vùng này là Dữ liệu cần lặp lại hiển thị từ CSDL -->
-                            <?php
+                     <?php
                             // Bước 01: Kết nối Database Server
                             $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
                             mysqli_set_charset($conn, 'UTF8');
                             if (!$conn) {
                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                            }
-                            // Bước 02: Thực hiện truy vấn               
+                            }             
                             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}'");
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                    <div class="inbox-message-item">
+                                    <div class="inbox-message-item message-default-unread">
                                         <div class="checkbox" style="margin-right: -12px;">
                                             <button class="btn">
                                                 <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
@@ -151,18 +148,18 @@ if (!isset($_SESSION['isLoginOK'])) {
                                         <!-- Message default ( unread ) -->
 
                                         <div class="message-default">
-                                            <div class="message-sender message-content unread">
-                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                            <div class="message-sender message-content unread" style="font-weight:100;">
+                                                <a href="sent-details.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
                                                     <span>
                                                         <?php
 
-                                                        echo $row['from_user'];
+                                                        echo $row['to_user'];
                                                         ?>
 
                                                     </span>
                                             </div>
 
-                                            <div class="message-subject message-content unread">
+                                            <div class="message-subject message-content unread" style="font-weight:100;">
                                                 <span>
                                                     <?php echo $row['subject']; ?>
                                                 </span>
@@ -177,7 +174,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             </a>
                                             </div>
                                             <div class="space-mail message-content"></div>
-                                            <div class="message-date center-text unread">
+                                            <div class="message-date center-text unread" style="font-weight:100;">
                                                 <span>17:25 PM</span>
                                             </div>
                                         </div>
