@@ -1,4 +1,5 @@
 <?php
+include('config/general.php');
     session_start();
     if(isset($_POST['sendmail'])){ 
     $to_user = $_POST['to_user'];
@@ -10,7 +11,7 @@
     $id =  $_SESSION['id'];
     $subject = $_POST['subject'];
     $text = mysqli_real_escape_string($conn, $_POST['content-text']);
-    $sql = "INSERT INTO tb_mail VALUES (NULL, '$id','$to_user','$subject','$text','123456')";
+    $sql = "INSERT INTO tb_mail VALUES (NULL, '$id','$to_user','$subject','$text','$date_current')";
     $ketqua = mysqli_query($conn,$sql);
     if(!$ketqua){
         $error = " Gửi tin nhắn thất bại ";
