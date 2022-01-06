@@ -66,8 +66,8 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     $data = mysqli_fetch_assoc($result);
                                     echo $data['number'];
                                     ?> trong số <?php
-                                    echo $data['number'];
-                                ?>
+                                                echo $data['number'];
+                                                ?>
                             </div>
                         </button>
 
@@ -131,8 +131,9 @@ if (!isset($_SESSION['isLoginOK'])) {
                             }
                             // Bước 02: Thực hiện truy vấn
                             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ");
-                            // 
+
                             // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
+
 
                             // Bước 03: Xử lý kết quả truy vấn
                             if (mysqli_num_rows($result) > 0) {
@@ -143,6 +144,15 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     $year_sent = substr($date_sent, 0, 4); // Năm gửi
                                     $hour_sent = substr($date_sent, 11, 2); // Giờ gửi
                                     $min_sent = substr($date_sent, 14, 2); // Phút gửi
+                                    // $sql= "SELECT firstName, lastName FROM `tb_user` WHERE ID = '{$row['from_user']}'";
+                                    // $result_nguoigui = mysqli_query($conn,$sql);
+                                    // $row2 = mysqli_fetch_assoc($result_nguoigui);
+                                    // sắp được rồi, cố lên 
+                                    // Lây tên ID & tài khoản đăng nhập
+                                    $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['from_user']}'");
+                                    $row2 = mysqli_fetch_assoc($check_name_sent);
+                                    $name_sent = " " . $row2["firstName"] . " " . $row2["lastName"] . " ";
+
                             ?>
                                     <div class="inbox-message-item">
                                         <div class="checkbox" style="margin-right: -12px;">
@@ -164,7 +174,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                                     <span>
                                                         <?php
 
-                                                        echo $row['from_user'];
+                                                        echo $name_sent;
                                                         ?>
 
                                                     </span>
@@ -187,9 +197,9 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             <div class="space-mail message-content"></div>
                                             <div class="message-date center-text unread">
                                                 <span><?php
-                                                 echo "$hour_sent:$min_sent"; 
-                                                 
-                                                 ?></span>
+                                                        echo "$hour_sent:$min_sent";
+
+                                                        ?></span>
                                             </div>
                                         </div>
                                         <div class="message-group-hidden">
