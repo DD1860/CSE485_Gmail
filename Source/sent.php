@@ -60,16 +60,16 @@ if (!isset($_SESSION['isLoginOK'])) {
                         <button class="btn-lg btn-alt">
                             <div class="inbox-menu-pagination">
                                 1-<?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
-                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['number'];
-                    ?> trong số <?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
-                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['number'];
-                    ?>
+                                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                                    $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                                    $data = mysqli_fetch_assoc($result);
+                                    echo $data['number'];
+                                    ?> trong số <?php
+                                                $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                                                $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                                                $data = mysqli_fetch_assoc($result);
+                                                echo $data['number'];
+                                                ?>
                             </div>
                         </button>
 
@@ -122,16 +122,25 @@ if (!isset($_SESSION['isLoginOK'])) {
                     <div class="content">
                         <div class="mail">
 
-                     <?php
+                            <?php
                             // Bước 01: Kết nối Database Server
                             $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
                             mysqli_set_charset($conn, 'UTF8');
                             if (!$conn) {
                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                            }             
-                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}'");
+                            }
+                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' ORDER BY id DESC");
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['to_user']}'");
+                                    $row2 = mysqli_fetch_assoc($check_name_sent);
+                                    $email_sent = "" . $row2["email"] . " ";
+                                    $date_sent = $row['time'];
+                                    $day_sent = substr($date_sent, 8, 2); // Ngày gửi
+                                    $month_sent = substr($date_sent, 5, 2); // Tháng gửi
+                                    $year_sent = substr($date_sent, 0, 4); // Năm gửi
+                                    $hour_sent = substr($date_sent, 11, 2); // Giờ gửi
+                                    $min_sent = substr($date_sent, 14, 2); // Phút gửi
                             ?>
                                     <div class="inbox-message-item message-default-unread">
                                         <div class="checkbox" style="margin-right: -12px;">
@@ -153,7 +162,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                                     <span>
                                                         <?php
 
-                                                        echo $row['to_user'];
+                                                        echo $email_sent;
                                                         ?>
 
                                                     </span>
@@ -167,15 +176,19 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             </a>
                                             <div class="message-seperator message-content"> - </div>
                                             <div class="message-body message-content">
-                                            <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
-                                                <span>
-                                                    <?php echo $row['text']; ?>
-                                                </span>
-                                            </a>
+                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                                    <span>
+                                                        <?php echo $row['text']; ?>
+                                                    </span>
+                                                </a>
                                             </div>
                                             <div class="space-mail message-content"></div>
                                             <div class="message-date center-text unread" style="font-weight:100;">
-                                                <span>17:25 PM</span>
+                                                <span>
+                                                    <?php
+                                                      echo "$hour_sent:$min_sent";
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="message-group-hidden">

@@ -130,7 +130,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                             }
                             // Bước 02: Thực hiện truy vấn
-                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ");
+                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ORDER BY id DESC ");
 
                             // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
 

@@ -14,7 +14,7 @@
                     <p>Thư mới</p>
                 </div>
                 <div class="send-to">
-                    <input type="text" name="to_user" placeholder="Người nhận" required>
+                    <input type="email" name="to_user" placeholder="Người nhận" required>
                 </div>
 
                 <div class="send-to subject">
