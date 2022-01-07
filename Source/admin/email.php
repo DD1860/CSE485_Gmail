@@ -20,7 +20,7 @@ include_once 'index.php';
 ?>
   <main class="containers">
     <div class="container">
-        <h5 class="text-center text-primary">DANH SACH NGUOI DUNG</h5>
+        <h5 class="text-center text-primary"></h5>
         <table class="table">
             <thead>
                 <tr>

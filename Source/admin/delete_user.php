@@ -1,7 +1,4 @@
 <?php
-    // admin.php TRUYỀN DỮ LIỆU SANG
-    // deleteEmployee: NHẬN DỮ LIỆU TỪ admin.php gửi sang
-    $ID = $_GET['ID'];
 
     // Bước 01: Kết nối Database Server
     $conn = mysqli_connect('localhost','root','','db_gmail');
@@ -13,7 +10,7 @@
 
     $number = mysqli_query($conn,$sql);
 
-    if($number  < 0){
+    if($number  > 0){
         header("location: index.php"); //Chuyển hướng về Trang quản trị
     }else{
         header("location: error.php"); //Chuyển hướng, hiển thị thông báo lỗi
