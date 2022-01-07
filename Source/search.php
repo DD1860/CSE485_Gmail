@@ -60,16 +60,16 @@ if (!isset($_SESSION['isLoginOK'])) {
                         <button class="btn-lg btn-alt">
                             <div class="inbox-menu-pagination">
                                 1-<?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
-                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['number'];
-                    ?> trong số <?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
-                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['number'];
-                    ?>
+                                    $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                                    $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                                    $data = mysqli_fetch_assoc($result);
+                                    echo $data['number'];
+                                    ?> trong số <?php
+                                                $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                                                $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                                                $data = mysqli_fetch_assoc($result);
+                                                echo $data['number'];
+                                                ?>
                             </div>
                         </button>
 
@@ -133,6 +133,10 @@ if (!isset($_SESSION['isLoginOK'])) {
                             }
                             // Bước 02: Thực hiện truy vấn
                             $search = $_GET['search'];
+                            if (empty($search)) {
+                                echo "<br>Nội dung không được để trống !";
+                                exit();
+                            }
                             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' AND subject LIKE '%$search%' OR text LIKE '%$search%'");
                             // 
                             // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
@@ -140,6 +144,9 @@ if (!isset($_SESSION['isLoginOK'])) {
                             // Bước 03: Xử lý kết quả truy vấn
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['from_user']}'");
+                                    $row2 = mysqli_fetch_assoc($check_name_sent);
+                                    $name_sent = " " . $row2["firstName"] . " " . $row2["lastName"] . " ";
                             ?>
                                     <div class="inbox-message-item">
                                         <div class="checkbox" style="margin-right: -12px;">
@@ -161,7 +168,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                                     <span>
                                                         <?php
 
-                                                        echo $row['from_user'];
+                                                        echo $name_sent;
                                                         ?>
 
                                                     </span>
@@ -175,11 +182,11 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             </a>
                                             <div class="message-seperator message-content"> - </div>
                                             <div class="message-body message-content">
-                                            <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
-                                                <span>
-                                                    <?php echo $row['text']; ?>
-                                                </span>
-                                            </a>
+                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                                    <span>
+                                                        <?php echo $row['text']; ?>
+                                                    </span>
+                                                </a>
                                             </div>
                                             <div class="space-mail message-content"></div>
                                             <div class="message-date center-text unread">
