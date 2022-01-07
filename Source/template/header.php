@@ -10,14 +10,14 @@
             <img src="images/logo_gmail.png" alt="Gmail_Logo">
         </a>
     </div>
-    
+
     <form class="header-middle" action="search.php">
         <div class="icons">
             <button id="js-header-search" class="btn tooltip" data-info="Search">
                 <span class="material-icons">search</span>
             </button>
         </div>
-        <input type="search" class="header-middle-input" name="search"  placeholder="Tìm kiếm trong thư">
+        <input type="search" class="header-middle-input" name="search" placeholder="Tìm kiếm trong thư">
         <div class="icons">
             <button id="js-header-middle" class="btn tooltip" data-info="Search">
                 <span class="material-icons">clear</span>
@@ -46,9 +46,20 @@
                 <span class="material-icons">apps</span>
             </button>
         </div>
+
+        <?php
+        require_once "config/db.php";
+        $result = mysqli_query($conn, "SELECT link FROM tb_client WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $avatar = "" . $row["link"] . "";
+        } else {
+            $avatar = "avatar.png";
+        }
+        ?>
         <div class="icons">
             <button id="header-profile" class="btn tooltip">
-                <img src="images/avatar.png" class="btn-icon header-profile">
+                <img src="client/uploads/<?php echo $avatar; ?>" class="btn-icon header-profile">
             </button>
         </div>
     </div>
@@ -58,84 +69,83 @@
 <!-- CSS Header -->
 
 <style>
+    .header {
+        display: grid;
+        grid-template-columns: 256px 1fr min-content;
+        justify-content: space-between;
+        align-items: center;
+        grid-column-gap: 12px;
+        height: 64px;
+        padding: 0.15rem;
+        background-color: white;
+        border-bottom: 1px solid var(--fill-border);
+        grid-column: 1 / 4;
+    }
 
-.header {
-	display: grid;
-	grid-template-columns: 256px 1fr min-content;
-	justify-content: space-between;
-	align-items: center;
-	grid-column-gap: 12px;
-	height: 64px;
-	padding: 0.15rem;
-	background-color: white;
-	border-bottom: 1px solid var(--fill-border);
-	grid-column: 1 / 4;
-}
+    .header-left {
+        display: flex;
+        align-items: center;
+        margin: 0 6px;
+    }
 
-.header-left  {
-	display: flex;
-	align-items: center;
-	margin: 0 6px;
-}
+    .header-middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+        max-width: 720px;
+        background-color: var(--fill-grey);
+        border-radius: 8px;
+        padding: 3px 8px;
+        transition: box-shadow 350ms ease;
+    }
 
-.header-middle {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 48px;
-	max-width: 720px;
-	background-color: var(--fill-grey);
-	border-radius: 8px;
-	padding: 3px 8px;
-	transition: box-shadow 350ms ease;
-}
+    .header-middle:focus-within {
+        background-color: white;
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 
-.header-middle:focus-within {
-	background-color: white;
-	box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-        
-}
+    }
 
-input[type="search"]::-webkit-search-cancel-button {
-  appearance: none;
-}
+    input[type="search"]::-webkit-search-cancel-button {
+        appearance: none;
+    }
 
-.header-middle-input {
-	display: block;
-	font-family: var(--font);
-	font-size: 15px;
-	font-weight: 50;
-	background-color: transparent;
-	width: 100%;
-	padding: 4px;
-	border: none;
-	outline: none;
-}
+    .header-middle-input {
+        display: block;
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 50;
+        background-color: transparent;
+        width: 100%;
+        padding: 4px;
+        border: none;
+        outline: none;
+    }
 
-.header-middle:focus-within .btn[type="reset"] {
-  display: flex;
-}
+    .header-middle:focus-within .btn[type="reset"] {
+        display: flex;
+    }
 
-#header-profile {
-	height: 42px;
-	width: 42px;
-}
+    #header-profile {
+        height: 42px;
+        width: 42px;
+    }
 
-.header-profile {
-	height: 32px;
-	width: 32px;
-	opacity: 1;
-}
+    .header-profile {
+        height: 32px;
+        width: 32px;
+        opacity: 1;
+    }
 
-#header-menu {
-	width: 48px;
-	height: 48px;
-	margin: 4px;
-}
-.header-right  {
-	display: flex;
-	align-items: center;
-	margin: 0 6px;
-}
+    #header-menu {
+        width: 48px;
+        height: 48px;
+        margin: 4px;
+    }
 
+    .header-right {
+        display: flex;
+        align-items: center;
+        margin: 0 6px;
+    }
 </style>
