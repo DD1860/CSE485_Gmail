@@ -1,4 +1,4 @@
-<?php require_once "process-login.php"; ?>
+<?php require_once "process-signup.php"; ?>
 <?php
     session_start();
     $emailafter = $_SESSION['email2'];
