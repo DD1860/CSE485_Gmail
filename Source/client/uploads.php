@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['isLoginOK'])) {
+    header("location:SignUp.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +16,9 @@
 
 <body>
     <div class="container">
-    <form action="upload.php" class ="test" method="post" enctype="multipart/form-data">
+    <form action="uploads-validate.php" class ="test" method="post" enctype="multipart/form-data">
         Select Image File to Upload:
-        <input type="file" name="file"><br><br><br>
+        <input type="file" name="image"><br><br><br>
         <input type="submit" name="submit" value="Upload">
     </form>
     </div>

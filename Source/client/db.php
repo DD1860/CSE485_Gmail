@@ -1,14 +1,23 @@
 <?php
-// Database configuration
-$dbHost     = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName     = "db_gmail";
 
-// Create database connection
-$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+define('DB_SERVER','localhost');
+
+define('DB_USER','root');
+
+define('DB_PASS' ,'');
+
+define('DB_NAME', 'db_gmail');
+
+$conn = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+
 // Check connection
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
+
+if (mysqli_connect_errno())
+
+{
+
+ echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
 }
+
 ?>
