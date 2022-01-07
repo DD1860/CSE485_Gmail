@@ -20,15 +20,15 @@
         $result = mysqli_query($conn,$sql);
         if(mysqli_num_rows($result) > 0){
             $_SESSION['email2'] = $email;
-            header("location: SignUpPassWord.php"); //Chuyển hướng sang form nhập pasowrd
+            header("location: SignInPassWord.php"); //Chuyển hướng sang form nhập pasowrd
         }else{
             $error = "Không tìm thấy Tài khoản Google của bạn.";
-            header("location: SignUp.php?error=$error"); //Chuyển hướng, hiển thị thông báo lỗi
+            header("location: SignIn.php?error=$error"); //Chuyển hướng, hiển thị thông báo lỗi
         }
         // Bước 03: Đóng kết nối
         mysqli_close($conn);
      } 
      else{
-         header("location:SignUp.php");
+         header("location:SignIn.php");
     }
 ?>

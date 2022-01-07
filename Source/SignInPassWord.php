@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SignUpPassWord</title>
+  <title>Nhập mật khẩu</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/SignUpPassWord.css">
+  <link rel="stylesheet" href="css/SignInPassWord.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -19,7 +19,7 @@
     <p>Hãy nhập mật khẩu của bạn</p>
 
     <div>
-      <form class="form-signin" action="process-signupPW.php" method="post">
+      <form class="form-signin" action="process-signinPW.php" method="post">
         <input class="input1" type="password" id="inputPassword" name="txtPass" placeholder="Nhập mật khẩu của bạn" required><br>
         <?php
         if (isset($_GET['error'])) {
