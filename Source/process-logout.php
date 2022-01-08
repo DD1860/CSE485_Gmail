@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['isLoginOK'])){
         unset($_SESSION['isLoginOK']);
-        header("location:SignUp.php");
+        header("location:SignIn.php");
     }
 
 ?>
