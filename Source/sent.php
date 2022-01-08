@@ -15,17 +15,18 @@ if (!isset($_SESSION['isLoginOK'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hộp thư đến - @username - Gmail</title>
     <link rel="icon" type="image/png" href="images/favicon-gmail.png">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/properties.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/reset.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/properties.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/style.css">
+    <link rel="stylesheet" href="/CSE485_Gmail/Source/css/general.css">
     <!-- Setup using Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
 <body>
-    <div class="container" class="form-signin" action="process-signup.php" method="post">
+    <div class="container">
         <!-- HEADER -->
-        <?php include "template/header.php"; ?>
+        <?php include 'template/header.php'; ?>
         <!-- Sidebar-left -->
         <?php include 'template/left-sidebar.php'; ?>
         <!-- BODY -->
@@ -43,11 +44,10 @@ if (!isset($_SESSION['isLoginOK'])) {
                                 <img src="images/icon/arrow_drop_down.png" alt="Select" class="btn-icon-sm">
                             </button>
                         </div>
-                        <a href="index.php?refresh">
-                            <button class="btn">
-                                <img src="images/icon/refresh.png" alt="Refresh" class="btn-icon-sm">
-                            </button>
-                        </a>
+
+                        <button class="btn">
+                            <img src="images/icon/refresh.png" alt="Refresh" class="btn-icon-sm">
+                        </button>
 
                         <button class="btn">
                             <img src="images/icon/more_vert.png" alt="More" class="btn-icon-sm">
@@ -65,6 +65,9 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     $data = mysqli_fetch_assoc($result);
                                     echo $data['number'];
                                     ?> trong số <?php
+                                                $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
+                                                $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                                                $data = mysqli_fetch_assoc($result);
                                                 echo $data['number'];
                                                 ?>
                             </div>
@@ -119,8 +122,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                     <div class="content">
                         <div class="mail">
 
-
-                            <!-- Vùng này là Dữ liệu cần lặp lại hiển thị từ CSDL -->
                             <?php
                             // Bước 01: Kết nối Database Server
                             $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
@@ -128,32 +129,20 @@ if (!isset($_SESSION['isLoginOK'])) {
                             if (!$conn) {
                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                             }
-                            // Bước 02: Thực hiện truy vấn
-                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ORDER BY id DESC ");
-
-                            // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
-
-
-                            // Bước 03: Xử lý kết quả truy vấn
+                            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' ORDER BY id DESC");
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
+                                    $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['to_user']}'");
+                                    $row2 = mysqli_fetch_assoc($check_name_sent);
+                                    $email_sent = "" . $row2["email"] . " ";
                                     $date_sent = $row['time'];
                                     $day_sent = substr($date_sent, 8, 2); // Ngày gửi
                                     $month_sent = substr($date_sent, 5, 2); // Tháng gửi
                                     $year_sent = substr($date_sent, 0, 4); // Năm gửi
                                     $hour_sent = substr($date_sent, 11, 2); // Giờ gửi
                                     $min_sent = substr($date_sent, 14, 2); // Phút gửi
-                                    // $sql= "SELECT firstName, lastName FROM `tb_user` WHERE ID = '{$row['from_user']}'";
-                                    // $result_nguoigui = mysqli_query($conn,$sql);
-                                    // $row2 = mysqli_fetch_assoc($result_nguoigui);
-                                    // sắp được rồi, cố lên 
-                                    // Lây tên ID & tài khoản đăng nhập
-                                    $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['from_user']}'");
-                                    $row2 = mysqli_fetch_assoc($check_name_sent);
-                                    $name_sent = " " . $row2["firstName"] . " " . $row2["lastName"] . " ";
-
                             ?>
-                                    <div class="inbox-message-item">
+                                    <div class="inbox-message-item message-default-unread">
                                         <div class="checkbox" style="margin-right: -12px;">
                                             <button class="btn">
                                                 <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
@@ -168,18 +157,18 @@ if (!isset($_SESSION['isLoginOK'])) {
                                         <!-- Message default ( unread ) -->
 
                                         <div class="message-default">
-                                            <div class="message-sender message-content unread">
-                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                            <div class="message-sender message-content unread" style="font-weight:100;">
+                                                <a href="sent-details.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
                                                     <span>
                                                         <?php
 
-                                                        echo $name_sent;
+                                                        echo $email_sent;
                                                         ?>
 
                                                     </span>
                                             </div>
 
-                                            <div class="message-subject message-content unread">
+                                            <div class="message-subject message-content unread" style="font-weight:100;">
                                                 <span>
                                                     <?php echo $row['subject']; ?>
                                                 </span>
@@ -194,11 +183,12 @@ if (!isset($_SESSION['isLoginOK'])) {
                                                 </a>
                                             </div>
                                             <div class="space-mail message-content"></div>
-                                            <div class="message-date center-text unread">
-                                                <span><?php
-                                                        echo "$hour_sent:$min_sent";
-
-                                                        ?></span>
+                                            <div class="message-date center-text unread" style="font-weight:100;">
+                                                <span>
+                                                    <?php
+                                                      echo "$hour_sent:$min_sent";
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="message-group-hidden">
@@ -227,61 +217,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                             }
                             ?>
 
-
-
-                            <!-- Message Read  -->
-                            <div class="inbox-message-item  message-default-unread">
-                                <div class="checkbox" style="margin-right: -12px;">
-                                    <button class="btn">
-                                        <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
-                                    </button>
-                                </div>
-
-                                <button class="btn star" style="margin: 0;">
-                                    <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
-                                </button>
-
-
-                                <div class="message-default">
-                                    <div class="message-sender message-content">
-                                        <span>Stack Overflow</span>
-                                    </div>
-                                    <div class="message-subject message-content">
-                                        <span>The Overflow #97: Code quality is everyone's concern</span>
-                                    </div>
-                                    <div class="message-seperator message-content"> - </div>
-                                    <div class="message-body message-content">
-                                        <span> Welcome to ISSUE #97 of The Overflow! This newsletter is by developers,
-                                            for developers, written
-                                            and curated by the Stack Overflow team and Cassidy Williams at Netlify. This
-                                            week: why hooks changed
-                                            the React game, how to preview a short link without clicking through, and
-                                            politicians who think
-                                            viewing source is being a hacker.</span>
-                                    </div>
-                                    <div class="space-mail message-content"></div>
-                                    <div class="message-date center-text">
-                                        <span>4:23 PM</span>
-                                    </div>
-                                </div>
-
-                                <div class="message-group-hidden">
-                                    <div class="inbox-message-item-options">
-                                        <button class="btn">
-                                            <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/mark_as_unread.png" alt="Mark as unread" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- FOOTER -->
                         <?php include 'template/footer.php'; ?>
@@ -290,11 +225,9 @@ if (!isset($_SESSION['isLoginOK'])) {
 
             </div>
         </section>
-
         <!-- RIGHT SIDEBAR -->
         <?php include 'template/right-sidebar.php'; ?>
     </div>
-
     <!-- Script -->
     <script type="text/javascript">
         function click_show_more() {

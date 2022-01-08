@@ -11,14 +11,14 @@
             <img src="images/logo_gmail.png" alt="Gmail_Logo">
         </a>
     </div>
-    
+
     <form class="header-middle" action="search.php">
         <div class="icons">
             <button id="js-header-search" class="btn tooltip" data-info="Search">
                 <span class="material-icons">search</span>
             </button>
         </div>
-        <input type="search" class="header-middle-input" name="search"  placeholder="Tìm kiếm trong thư">
+        <input type="search" class="header-middle-input" name="search" placeholder="Tìm kiếm trong thư">
         <div class="icons">
             <button id="js-header-middle" class="btn tooltip" data-info="Search">
                 <span class="material-icons">clear</span>
@@ -84,6 +84,20 @@
             <img src="images/danhba.png" alt="" style=" width:64px; height: 64px;  margin:15px;"> 
             </div> 
         </div>
+        <?php
+        require_once "config/db.php";
+        $result = mysqli_query($conn, "SELECT link FROM tb_client WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $avatar = "" . $row["link"] . "";
+        } else {
+            $avatar = "avatar.png";
+        }
+        ?>
+        <div class="icons">
+            <button id="header-profile" class="btn tooltip">
+                <img src="client/uploads/<?php echo $avatar; ?>" class="btn-icon header-profile">
+            </button>
         </div>
 <!-- đăng xuất tài khoản -->
         <div class="dropdown">

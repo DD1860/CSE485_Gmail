@@ -14,7 +14,7 @@
                     <p>Thư mới</p>
                 </div>
                 <div class="send-to">
-                    <input type="text" name="to_user" placeholder="Người nhận" required>
+                    <input type="email" name="to_user" placeholder="Người nhận" required>
                 </div>
 
                 <div class="send-to subject">
@@ -34,14 +34,16 @@
     <div class="left-siderbar-label">
         <ul class="labels category-item-list">
             <li class="category-item active">
-                <div>
-                    <img src="images/icon/inbox.png" style="opacity: 1;">
-                    <span class="left-sidebar-icon">Hộp thư đến</span>
-                </div>
+                <a href="index.php" style="text-decoration:none;color:var(--red);">
+                    <div>
+                        <img src="images/icon/inbox.png" style="opacity: 1;">
+                        <span class="left-sidebar-icon">Hộp thư đến</span>
+                    </div>
+                </a>
                 <span class="category-item-number">
                     <?php
                     $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
-                    $result = mysqli_query($conn,"SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
+                    $result = mysqli_query($conn, "SELECT count(ID) AS number FROM tb_mail WHERE to_user = '{$_SESSION['id']}' ");
                     $data = mysqli_fetch_assoc($result);
                     echo $data['number'];
                     ?>
@@ -65,10 +67,12 @@
             </li>
 
             <li class="category-item">
-                <div>
-                    <img src="images/icon/send.png">
-                    <span class="left-sidebar-icon">Đã gửi</span>
-                </div>
+                <a href="sent.php" style="text-decoration:none;color:black">
+                    <div>
+                        <img src="images/icon/send.png">
+                        <span class="left-sidebar-icon">Đã gửi</span>
+                    </div>
+                </a>
             </li>
 
             <li class="category-item">
@@ -170,9 +174,20 @@
 
         </div>
 
+        <?php
+        require_once "config/db.php";
+        $result = mysqli_query($conn, "SELECT link FROM tb_client WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $avatar = "" . $row["link"] . "";
+        } else {
+            $avatar = "avatar.png";
+        }
+        ?>
+
         <div class="connect">
             <span class="category-title" style="margin-top: 20px;">Hangouts</span>
-            <img class="category-img" src="images/avatar.png" alt="">
+            <img class="category-img btn-icon" src="client/uploads/<?php echo $avatar ?>" alt="avatar">
             <div class="dot-green"></div>
             <div class="user-name">
                 <?php
