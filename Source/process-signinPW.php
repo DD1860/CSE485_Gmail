@@ -1,4 +1,4 @@
-<?php require_once "process-login.php"; ?>
+<?php require_once "process-signin.php"; ?>
 <?php
     session_start();
     $emailafter = $_SESSION['email2'];
@@ -39,13 +39,13 @@ if (isset($_POST['btnSignIn2'])) {
         header("location: index.php"); //Chuyển hướng sang index
     } else {
         $error = "Mật khẩu không chính xác. Hãy thử lại hoặc nhấp vào ''Bạn quên mật khẩu'' để đặt lại mật khẩu.";
-        header("location: SignUpPassWord.php?error=$error");
+        header("location: SignInPassWord.php?error=$error");
         //Chuyển hướng, hiển thị thông báo lỗi
     }
 
     // Bước 03: Đóng kết nối
     mysqli_close($conn);
 } else {
-    header("location:SignUp.php");
+    header("location:SignIn.php");
 }
 ?>

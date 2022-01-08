@@ -66,7 +66,6 @@ INSERT INTO `tb_client` (`ID`, `user_id`, `link`, `date`) VALUES
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `tb_mail`
 --
 
@@ -78,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `tb_mail` (
   `text` text CHARACTER SET utf8 NOT NULL,
   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
+
 
 --
 -- Dumping data for table `tb_mail`
@@ -94,6 +94,7 @@ INSERT INTO `tb_mail` (`ID`, `from_user`, `to_user`, `subject`, `text`, `time`) 
 (57, 2, 1, 'vẫn là em NVA nè', 'mysqli_fetch_assoc($check_name_sent); mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);mysqli_fetch_assoc($check_name_sent);', '2022-01-06 17:16:56'),
 (60, 1, 0, 'hy vọng là gửi được', 'thần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\nthần linh ban phướccccccc\r\n', '2022-01-06 18:14:40'),
 (62, 1, 2, 'Bạn khỏe không NVA ?', 'Hy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\nHy vọng bạn sẽ đạt điểm cao <3\r\n', '2022-01-06 18:22:23');
+
 
 -- --------------------------------------------------------
 
@@ -134,6 +135,7 @@ ALTER TABLE `tb_client`
  ADD PRIMARY KEY (`ID`);
 
 --
+
 -- Indexes for table `tb_mail`
 --
 ALTER TABLE `tb_mail`
@@ -164,6 +166,7 @@ MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 ALTER TABLE `tb_mail`
 MODIFY `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
