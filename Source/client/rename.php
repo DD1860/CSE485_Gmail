@@ -16,7 +16,6 @@
 </head>
 
 <body>
-    <div class="container">
     <header class="header">
 
 <div class="header-left">
@@ -56,20 +55,21 @@
 </div>
 
 </header>
-    <div class="row g-2">
-        <div class="col-md">
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
-                <label for="floatingInputGrid">Họ</label>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
-                <label for="floatingInputGrid">Tên</label>
-            </div>
-        </div>
-    </div>
+<br><br><center><h5>Thay đổi tên tài khoản</h5></center>
+<hr>
+<div class="container">
+Các thay đổi đối với tên của bạn sẽ được phản ánh trên Tài khoản Google của bạn. <br><br>
+<form class="form-floating" action="" method="post">
+  <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="lấy ra họ ( frist name )">
+  <label for="floatingInputValue">Họ</label>
+<br>
+  <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="lấy ra tên ( last name )"><br>
+  <h6>Những người có thể thấy tên bạn</h6><br>
+  Mọi người có thể thấy thông tin này khi họ liên hệ với bạn hoặc xem nội dung bạn tạo trong các dịch vụ của Google.
+  <br> Tìm hiểu thêm<br><br>
+  <button type="button" class="btn btn-primary">Lưu</button>
+  <a href="/CSE485_Gmail/Source/personal-info.php"><button type="button" class="btn btn-light">Hủy</button></a>
+</form>
     </div>
 </body>
 
