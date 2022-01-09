@@ -109,10 +109,12 @@
                     </div>
                 </li>
                 <li class="category-item">
+                <a href="all-mail.php" style="text-decoration:none;color:var(--black)">
                     <div>
                         <img src="images/icon/mail.png">
                         <span class="left-sidebar-icon">Tất cả thư</span>
                     </div>
+                </a>
                 </li>
                 <li class="category-item">
                     <div>
