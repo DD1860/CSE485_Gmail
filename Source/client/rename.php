@@ -57,7 +57,7 @@
 </header>
 <br><br><center><h5>Thay đổi tên tài khoản</h5></center>
 <hr>
-<div class="container">
+<div class="container" style="max-width:50%">
 Các thay đổi đối với tên của bạn sẽ được phản ánh trên Tài khoản Google của bạn. <br><br>
 <div class="box-form" style="padding:32px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
 <form class="form-floating" action="" method="post">
