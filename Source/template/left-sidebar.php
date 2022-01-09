@@ -176,7 +176,7 @@
 
         <?php
         require_once "config/db.php";
-        $result = mysqli_query($conn, "SELECT link FROM tb_client WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
+        $result = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             $avatar = "" . $row["link"] . "";

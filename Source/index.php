@@ -131,9 +131,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                             // Bước 02: Thực hiện truy vấn
                             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE  to_user = '{$_SESSION['id']}' ORDER BY id DESC ");
 
-                            // $check_nguoigui = mysqli_query($conn, "SELECT firstName, lastName FROM tb_user WHERE ID = {from_id}  " );
-
-
                             // Bước 03: Xử lý kết quả truy vấn
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -143,11 +140,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                                     $year_sent = substr($date_sent, 0, 4); // Năm gửi
                                     $hour_sent = substr($date_sent, 11, 2); // Giờ gửi
                                     $min_sent = substr($date_sent, 14, 2); // Phút gửi
-                                    // $sql= "SELECT firstName, lastName FROM `tb_user` WHERE ID = '{$row['from_user']}'";
-                                    // $result_nguoigui = mysqli_query($conn,$sql);
-                                    // $row2 = mysqli_fetch_assoc($result_nguoigui);
-                                    // sắp được rồi, cố lên 
-                                    // Lây tên ID & tài khoản đăng nhập
                                     $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['from_user']}'");
                                     $row2 = mysqli_fetch_assoc($check_name_sent);
                                     $name_sent = " " . $row2["firstName"] . " " . $row2["lastName"] . " ";

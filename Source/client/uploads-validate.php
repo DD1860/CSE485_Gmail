@@ -10,7 +10,7 @@ $imgfile=$_FILES["image"]["name"];
 
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 
-$allowed_extensions = array(".jpg","jpeg",".png");
+$allowed_extensions = array(".jpg",".jpeg",".png");
 
 // Validation for allowed extensions
 
@@ -36,7 +36,7 @@ move_uploaded_file($_FILES["image"]["tmp_name"],"uploads/".$imgnewfile);
 
 // lưu vào databases
 
-$query=mysqli_query($conn,"insert into tb_client (user_id,link) values('{$_SESSION['id']}','$imgnewfile')");
+$query=mysqli_query($conn,"insert into tb_uploads (user_id,link) values('{$_SESSION['id']}','$imgnewfile')");
 
 if($query)
 
