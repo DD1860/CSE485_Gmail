@@ -23,13 +23,12 @@
             
         $sql = "INSERT INTO tb_user VALUES (NULL, '$firstNam', '$lastName', '$email', '$pass_hash')";
         $result = mysqli_query($conn,$sql);
-         if ($result) {
+         if ($result) { 
             $success = "Đăng ký thành công !";
             header("location:SignIn.php?success=$success");  }
-            else {
+        else {
             $error2 = "Đã xảy ra lỗi !";
             header("location:SignIn.php?error=$error2");  }
-            // chỗ này sửa đi nhé, tại vì mặc định đúng, chưa có truwofnfg hợp sai
         // Bước 03: Đóng kết nối
         mysqli_close($conn);
     }
