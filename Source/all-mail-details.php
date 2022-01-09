@@ -102,14 +102,14 @@ if (!isset($_SESSION['isLoginOK'])) {
             $token = $_GET['token'];
             $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' AND ID = $token ");
             $row = mysqli_fetch_assoc($result);
-             // lấy avatar
-             $result2 = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$row['from_user']}' ORDER BY id DESC");
-             if (mysqli_num_rows($result2) > 0) {
-                 $row_avatar = mysqli_fetch_assoc($result2);
-                 $avatar = "" . $row_avatar["link"] . "";
-             } else {
-                 $avatar = "avatar.png";
-             }
+           // get avatar 
+            $result2 = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$row['from_user']}' ORDER BY id DESC");
+                if (mysqli_num_rows($result2) > 0) {
+                    $row_avatar = mysqli_fetch_assoc($result2);
+                    $avatar = "".$row_avatar["link"]."";
+                } else {
+                    $avatar = "avatar.png";
+                }
             ?>
             <div class="auto-flow">
              <div class="details-subject">
@@ -121,7 +121,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 
         <div class="info-inbox">
         <div class="icons">
-        <img src="client/uploads/<?php echo $avatar ?>" class="avatar-profile">
+        <img src="client/uploads/<?php echo $avatar ?>" class="avatar-profile" style="border-radius:999px;width:36px;height:36px;">
         </div>
         <div class="user-name" style="font-weight:bold">
                 <?php

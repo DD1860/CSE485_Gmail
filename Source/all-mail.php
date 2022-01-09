@@ -158,7 +158,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                                         <div class="message-default">
                                             <div class="message-sender message-content unread" style="font-weight:100;">
-                                                <a href="sent-details.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                                <a href="all-mail-details.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
                                                     <span>
                                                         <?php
 
@@ -176,7 +176,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             </a>
                                             <div class="message-seperator message-content"> - </div>
                                             <div class="message-body message-content">
-                                                <a href="inbox.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
+                                                <a href="all-mail-details.php?token=<?php echo $row['ID']; ?>" style="color:black;text-decoration: none;">
                                                     <span>
                                                         <?php echo $row['text']; ?>
                                                     </span>

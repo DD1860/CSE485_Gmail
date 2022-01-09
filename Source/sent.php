@@ -186,7 +186,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                                             <div class="message-date center-text unread" style="font-weight:100;">
                                                 <span>
                                                     <?php
-                                                      echo "$hour_sent:$min_sent";
+                                                    echo "$hour_sent:$min_sent";
                                                     ?>
                                                 </span>
                                             </div>
