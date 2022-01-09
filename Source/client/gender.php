@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="/CSE485_Gmail/Source/css/personal-info.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Đổi tên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Đổi giới tính</title>
 
 </head>
 
@@ -55,22 +56,45 @@
 </div>
 
 </header>
-<br><br><center><h5>Thay đổi tên tài khoản</h5></center>
+<br><br><center><h5>Thay đổi giới tính</h5></center>
 <hr>
 <div class="container">
-Các thay đổi đối với tên của bạn sẽ được phản ánh trên Tài khoản Google của bạn. <br><br>
+Hệ thống có thể dựa vào giới tính để mang đến trải nghiệm phù hợp với bạn trên các dịch vụ của Google, bao gồm cả cách chúng tôi xưng hô với bạn. <br>Tìm hiểu thêm <br><br>
 <div class="box-form" style="padding:32px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
-<form class="form-floating" action="" method="post">
-  <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="lấy ra họ ( frist name )">
-  <label for="floatingInputValue">Họ</label>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Nữ 
+  </label>
+</div>
 <br>
-  <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="lấy ra tên ( last name )"><br>
-  <h6>Những người có thể thấy tên bạn</h6><br>
-  Mọi người có thể thấy thông tin này khi họ liên hệ với bạn hoặc xem nội dung bạn tạo trong các dịch vụ của Google.
-  <br> Tìm hiểu thêm<br><br>
-  <button type="button" class="btn btn-primary">Lưu</button>
-  <a href="/CSE485_Gmail/Source/personal-info.php"><button type="button" class="btn btn-light">Hủy</button></a>
-</form></div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+   Nam
+  </label>
+</div>
+<br>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+   Không muốn nói
+  </label>
+</div>
+<br>
+<h6>Chọn những người có thể thấy giới tính của bạn</h6>
+<br>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+  <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-file-lock2"></i>  Chỉ mình bạn</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btnradio2"><i class="bi bi-people"></i>  Bất kỳ ai</label>
+
+</div>
+<br><br>
+Mọi người có thể thấy thông tin này khi họ liên hệ với bạn hoặc xem nội dung bạn tạo trong các dịch vụ của Google. Tìm hiểu thêm 
+</div>
     </div>
 </body>
 
