@@ -41,7 +41,7 @@
             </p>
             <div class="row" style="margin-bottom: 60px;">
                 <div class="col-md-5">
-                    <a style="text-decoration: none" href="#">Tạo tài khoản</a>
+                    <a style="text-decoration: none" href="SignUp.php">Tạo tài khoản</a>
                 </div>
                 <div class="d-grid  col-4 mx-auto">
                     <button type="submit" class="btn btn-primary" name="btnSignIn">Tiếp theo</button>
