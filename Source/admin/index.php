@@ -1,17 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System | Administrator</title>
-</head>
-<body>
-    <h1> If successful, you'll see this</h1>
-    
-</body>
-=======
 
 <head>
   <meta charset="UTF-8" />
@@ -61,11 +49,6 @@
       <nav class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              CORE
-            </div>
-          </li>
-          <li>
             <a href="index.php" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
               <span>Dashboard</span>
@@ -114,6 +97,4 @@
   <!-- offcanvas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 </body>
-
->>>>>>> TongVanHoan
 </html>

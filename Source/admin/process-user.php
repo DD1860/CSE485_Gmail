@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -48,7 +50,7 @@ include_once 'index.php';
                 ?>
                             <tr>
                                 <th scope="row"><?php echo $row['ID']; ?></th>
-                                <td><?php echo $row['firstNam']; ?></td>
+                                <td><?php echo $row['firstName']; ?></td>
                                 <td><?php echo $row['lastName']; ?></td>
                                 <td><?php echo $row['email']; ?></td>
                                 <td><?php echo $row['password']; ?></td>
