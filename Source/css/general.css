@@ -275,7 +275,7 @@ body {
 
 /* Popup compose  */
 
-.popup {
+.popup , .popup-reply, .popup-forward {
   display: none;
   position: fixed;
   padding-top: 50px;
@@ -310,7 +310,7 @@ body {
   border-radius: 5px 5px 0px 0px;
 }
 
-.close-btn {
+.close-btn , .close-btn-reply {
   float: right;
   color: #bdbdbd;
   font-size: 18px;
@@ -318,6 +318,10 @@ body {
 }
 
 .close-btn:hover {
+  color: #ffffff;
+}
+
+.close-btn-reply:hover {
   color: #ffffff;
 }
 

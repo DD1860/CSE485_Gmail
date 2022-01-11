@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System | Administrator</title>
-</head>
-<body>
-    <h1> If successful, you'll see this</h1>
-    
-</body>
-=======
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,5 +102,4 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 </body>
 
->>>>>>> TongVanHoan
 </html>

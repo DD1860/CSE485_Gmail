@@ -5,6 +5,7 @@
             <span class="sidebar-btn-create-title">Soạn thư</span>
         </button>
     </div>
+
     <!-- popup compose gmail -->
     <form class="send_email" action="send-mail.php" method="post">
         <div class="popup">
@@ -14,7 +15,7 @@
                     <p>Thư mới</p>
                 </div>
                 <div class="send-to">
-                    <input type="email" name="to_user" placeholder="Người nhận" required>
+                    <input type="email" name="to_user" placeholder="Người nhận" value="" required>
                 </div>
 
                 <div class="send-to subject">

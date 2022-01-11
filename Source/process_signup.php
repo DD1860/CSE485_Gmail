@@ -2,7 +2,7 @@
     // Tạo SESSION
     session_start();
     if(isset($_POST['btn'])){
-        $firstNam = $_POST['fname'];
+        $firstName = $_POST['fname'];
         $lastName  = $_POST['Lname'];
         $email =  $_POST['email'];
         $password = $_POST['pass'];
@@ -16,19 +16,19 @@
         $resultcheck = mysqli_query($conn,$check);
         if(mysqli_num_rows($resultcheck) > 0){
             $error = "Địa chỉ email này đã được đăng ký !";
-            header("location: SignIn.php?error=$error"); }  //Chuyển hướng, hiển thị thông báo lỗi
+            header("location: SignUp.php?error=$error"); }  //Chuyển hướng, hiển thị thông báo lỗi
          else {
             $pass_md5 = md5 ($pass1);
             $pass_hash = password_hash ($pass1, PASSWORD_DEFAULT);
             
-        $sql = "INSERT INTO tb_user VALUES (NULL, '$firstNam', '$lastName', '$email', '$pass_hash')";
+        $sql = "INSERT INTO tb_user (`ID`, `firstname`, `lastname`,`email`,`password`) VALUES (NULL, '$firstName', '$lastName', '$email', '$pass_hash')";
         $result = mysqli_query($conn,$sql);
          if ($result) { 
             $success = "Đăng ký thành công !";
-            header("location:SignIn.php?success=$success");  }
+            header("location:SignUp.php?success=$success");  }
         else {
             $error2 = "Đã xảy ra lỗi !";
-            header("location:SignIn.php?error=$error2");  }
+            header("location:SignUp.php?error=$error2");  }
         // Bước 03: Đóng kết nối
         mysqli_close($conn);
     }

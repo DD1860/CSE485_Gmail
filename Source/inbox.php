@@ -21,6 +21,7 @@ if (!isset($_SESSION['isLoginOK'])) {
     <link rel="stylesheet" href="/CSE485_Gmail/Source/css/general.css">
     <!-- Setup using Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
@@ -109,7 +110,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                 $result2 = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$row['from_user']}' ORDER BY id DESC");
                 if (mysqli_num_rows($result2) > 0) {
                     $row_avatar = mysqli_fetch_assoc($result2);
-                    $avatar = "".$row_avatar["link"]."";
+                    $avatar = "" . $row_avatar["link"] . "";
                 } else {
                     $avatar = "avatar.png";
                 }
@@ -141,11 +142,64 @@ if (!isset($_SESSION['isLoginOK'])) {
                         <br> <br>
 
                         <!-- button trả lời & chuyển tiếp -->
-                        <a href="#" class="reply">Trả lời</a>
-                        <a href="#" class="reply">Chuyển tiếp</a>
+                        <a href="#" class="reply" id="popup-btn-reply">Trả lời</a>
+                        <a href="#" class="reply" id="popup-btn-forward">Chuyển tiếp</a>
 
                     </div>
                 </div>
+                <!-- popup compose gmail -->
+                <form class="send_email" action="send-mail.php" method="post">
+                    <div class="popup-reply">
+                        <div class="popup-content">
+                            <div class="popup-head">
+                                <span class="close-btn-reply">&times;</span>
+                                <p>Trả lời</p>
+                            </div>
+                            <div class="send-to">
+                                <input type="email" name="to_user" placeholder="Người nhận" value="<?php echo $row['ID'] ?>" required>
+                            </div>
+
+                            <div class="send-to subject">
+                                <input type="text" name="subject" placeholder="Chủ đề" required>
+                            </div>
+                            <button type="submit" name="sendmail" class="btn-send">Gửi</button>
+                            <?php
+                            if (isset($_GET['success'])) {
+                                echo "<script>alert('Tin nhắn đã được gửi đi thành công !');</script>";
+                            }
+
+                            ?>
+                            <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"></textarea>
+                        </div>
+                    </div>
+                </form>
+
+            <!-- Form forward -->
+            <form class="send_email" action="send-mail.php" method="post">
+                    <div class="popup-forward">
+                        <div class="popup-content">
+                            <div class="popup-head">
+                                <span class="close-btn-reply">&times;</span>
+                                <p>Chuyển tiếp tin nhắn</p>
+                            </div>
+                            <div class="send-to">
+                                <input type="email" name="to_user" placeholder="Người nhận" required>
+                            </div>
+
+                            <div class="send-to subject">
+                                <input type="text" name="subject" placeholder="Chủ đề" value="<?php echo $row['subject'] ?>" required>
+                            </div>
+                            <button type="submit" name="sendmail" class="btn-send">Gửi</button>
+                            <?php
+                            if (isset($_GET['success'])) {
+                                echo "<script>alert('Tin nhắn đã được gửi đi thành công !');</script>";
+                            }
+
+                            ?>
+                            <textarea class="text-message" style="resize:none" name="content-text" cols="24" rows="4"><?php echo $row['text'] ?></textarea>
+                        </div>
+                    </div>
+                </form>
         </section>
         <!-- RIGHT SIDEBAR -->
         <?php include 'template/right-sidebar.php'; ?>
@@ -155,14 +209,37 @@ if (!isset($_SESSION['isLoginOK'])) {
     <script type="text/javascript">
         function click_show_more() {
             var x = document.getElementById('show-more');
-            if (x.style.display === 'none') {
+            if (x.style.display == 'none') {
                 x.style.display = 'block';
             } else {
                 x.style.display = 'none';
             }
         }
-    </script>
 
+        let btn_popup_reply = document.getElementById("popup-btn-reply");
+        let popup_reply = document.querySelector(".popup-reply");
+        let close_btn_reply = document.querySelector(".close-btn-reply");
+        // Hiển thị popup khi nhấp chuột vào button
+        btn_popup_reply.onclick = function() {
+            popup_reply.style.display = "block"
+        }
+        // Đóng popup khi ấn vào nút đóng
+        close_btn_reply.onclick = function() {
+            popup_reply.style.display = "none"
+        }
+
+        let btnpopupforward = document.getElementById("popup-btn-forward");
+        let popupforward = document.querySelector(".popup-forward");
+        let closeBtnforward = document.querySelector(".close-btn");
+        // Hiển thị popup khi nhấp chuột vào button
+        btnpopupforward.onclick = function() {
+            popupforward.style.display = "block"
+        }
+        // Đóng popup khi ấn vào nút đóng
+        closeBtnforward.onclick = function() {
+            popupforward.style.display = "none"
+        }
+    </script>
 </body>
 
 </html>
