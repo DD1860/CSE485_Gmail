@@ -140,7 +140,7 @@
         <section class="inbox">
             <div class="title">
                 <h1>Thông tin cá nhân</h1>
-                <center><img src="client/uploads/<?php echo $avatar ?>" style="margin:15px; height:120px;width:120px;border-radius:999px;"></center>
+                <center><a href="client/uploads.php"><img src="client/uploads/<?php echo $avatar ?>" style="margin:15px; height:120px;width:120px;border-radius:999px;"></a></center>
             </div>
             <div class="info-user">
                 <span style="font-weight:bold">Thông tin cơ bản</span><br><br>
