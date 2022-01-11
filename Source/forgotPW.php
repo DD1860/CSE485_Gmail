@@ -28,7 +28,7 @@
         }
 
         ?>
-        <div class="col-md-6" style="margin-bottom:15%;">
+        <div class="col-md-6" style="margin-bottom:15%; margin-top:2.5%;">
           <input type="checkbox" class="show-btn"> Hiển thị mật khẩu
         </div>
 
