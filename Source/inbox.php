@@ -106,6 +106,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                 $check_name_sent = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$row['from_user']}'");
                 $row2 = mysqli_fetch_assoc($check_name_sent);
                 $name_sent = " " . $row2["firstName"] . " " . $row2["lastName"] . " ";
+                $email_sent = "" . $row2["email"] . "";
                 // lấy avatar người gửi
                 $result2 = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$row['from_user']}' ORDER BY id DESC");
                 if (mysqli_num_rows($result2) > 0) {
@@ -148,19 +149,20 @@ if (!isset($_SESSION['isLoginOK'])) {
                     </div>
                 </div>
                 <!-- popup compose gmail -->
+
                 <form class="send_email" action="send-mail.php" method="post">
                     <div class="popup-reply">
                         <div class="popup-content">
                             <div class="popup-head">
                                 <span class="close-btn-reply">&times;</span>
-                                <p>Trả lời</p>
+                                <p>Trả lời tin nhắn</p>
                             </div>
                             <div class="send-to">
-                                <input type="email" name="to_user" placeholder="Người nhận" value="<?php echo $row['ID'] ?>" required>
+                                <input type="email" name="to_user" placeholder="Người nhận" value="<?php echo $email_sent ?>" required>
                             </div>
 
                             <div class="send-to subject">
-                                <input type="text" name="subject" placeholder="Chủ đề" required>
+                                <input type="text" name="subject" placeholder="Chủ đề" value="[ Reply ] <?php echo $row['subject'] ?>" required>
                             </div>
                             <button type="submit" name="sendmail" class="btn-send">Gửi</button>
                             <?php
@@ -179,7 +181,7 @@ if (!isset($_SESSION['isLoginOK'])) {
                     <div class="popup-forward">
                         <div class="popup-content">
                             <div class="popup-head">
-                                <span class="close-btn-reply">&times;</span>
+                                <span class="close-btn-forward">&times;</span>
                                 <p>Chuyển tiếp tin nhắn</p>
                             </div>
                             <div class="send-to">
@@ -230,7 +232,7 @@ if (!isset($_SESSION['isLoginOK'])) {
 
         let btnpopupforward = document.getElementById("popup-btn-forward");
         let popupforward = document.querySelector(".popup-forward");
-        let closeBtnforward = document.querySelector(".close-btn");
+        let closeBtnforward = document.querySelector(".close-btn-forward");
         // Hiển thị popup khi nhấp chuột vào button
         btnpopupforward.onclick = function() {
             popupforward.style.display = "block"

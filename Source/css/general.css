@@ -310,7 +310,7 @@ body {
   border-radius: 5px 5px 0px 0px;
 }
 
-.close-btn , .close-btn-reply {
+.close-btn , .close-btn-reply, .close-btn-forward {
   float: right;
   color: #bdbdbd;
   font-size: 18px;
@@ -322,6 +322,10 @@ body {
 }
 
 .close-btn-reply:hover {
+  color: #ffffff;
+}
+
+.close-btn-forward:hover {
   color: #ffffff;
 }
 
