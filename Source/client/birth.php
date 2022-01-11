@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/CSE485_Gmail/Source/images/favicon-gmail.png">
     <!-- CSS only -->
     <link rel="stylesheet" href="/CSE485_Gmail/Source/css/reset.css">
     <link rel="stylesheet" href="/CSE485_Gmail/Source/css/properties.css">

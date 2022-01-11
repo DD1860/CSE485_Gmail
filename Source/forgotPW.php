@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Quên mật khẩu</title>
+  <link rel="icon" type="image/png" href="/CSE485_Gmail/Source/images/favicon-gmail.png">
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/forget.css">
   <!-- CSS only -->
