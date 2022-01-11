@@ -18,7 +18,7 @@
 
 <body>
     <div id="div1">
-        <img src="images/logo-google.png" style="width:25%; height:25%;" alt="">
+        <img src="images/logo-google.png" style="width:25%; height:25%; padding-top: 15px;" alt="">
         <h4>Đăng nhập</h4>
         <p style="margin-bottom: 8%;">để tiếp tục đến Gmail</p>
        
