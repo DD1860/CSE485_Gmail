@@ -220,61 +220,6 @@ if (!isset($_SESSION['isLoginOK'])) {
                             }
                             ?>
 
-
-
-                            <!-- Message Read  -->
-                            <div class="inbox-message-item  message-default-unread">
-                                <div class="checkbox" style="margin-right: -12px;">
-                                    <button class="btn">
-                                        <img src="images/icon/check_box_outline.png" alt="Select" class="message-btn-icon">
-                                    </button>
-                                </div>
-
-                                <button class="btn star" style="margin: 0;">
-                                    <img src="images/icon/star_black.png" alt="Not starred" class="message-btn-icon">
-                                </button>
-
-
-                                <div class="message-default">
-                                    <div class="message-sender message-content">
-                                        <span>Stack Overflow</span>
-                                    </div>
-                                    <div class="message-subject message-content">
-                                        <span>The Overflow #97: Code quality is everyone's concern</span>
-                                    </div>
-                                    <div class="message-seperator message-content"> - </div>
-                                    <div class="message-body message-content">
-                                        <span> Welcome to ISSUE #97 of The Overflow! This newsletter is by developers,
-                                            for developers, written
-                                            and curated by the Stack Overflow team and Cassidy Williams at Netlify. This
-                                            week: why hooks changed
-                                            the React game, how to preview a short link without clicking through, and
-                                            politicians who think
-                                            viewing source is being a hacker.</span>
-                                    </div>
-                                    <div class="space-mail message-content"></div>
-                                    <div class="message-date center-text">
-                                        <span>4:23 PM</span>
-                                    </div>
-                                </div>
-
-                                <div class="message-group-hidden">
-                                    <div class="inbox-message-item-options">
-                                        <button class="btn">
-                                            <img src="images/icon/archive.png" alt="Archive" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/delete.png" alt="Delete" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/mark_as_unread.png" alt="Mark as unread" class="btn-icon-sm">
-                                        </button>
-                                        <button class="btn">
-                                            <img src="images/icon/watch_later.png" alt="Snooze" class="btn-icon-sm">
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- FOOTER -->
                         <?php include 'template/footer.php'; ?>

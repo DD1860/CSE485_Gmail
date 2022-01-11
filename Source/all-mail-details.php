@@ -94,23 +94,16 @@ if (!isset($_SESSION['isLoginOK'])) {
                 </div>
             </div>
              <!-- Xử lý cơ sở dữ liệu hiển thị tin nhắn đến theo token ( ID ) -->
-            <?php
+             <?php
             $conn = mysqli_connect('localhost', 'root', '', 'db_gmail');
             mysqli_set_charset($conn, 'UTF8');
             if (!$conn) {
                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
             }
             $token = $_GET['token'];
-            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' AND ID = $token ");
+            $result = mysqli_query($conn, "SELECT * FROM tb_mail WHERE from_user = '{$_SESSION['id']}' OR to_user = '{$_SESSION['id']}'  AND ID = $token ");
             $row = mysqli_fetch_assoc($result);
-           // get avatar 
-            $result2 = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$row['from_user']}' ORDER BY id DESC");
-                if (mysqli_num_rows($result2) > 0) {
-                    $row_avatar = mysqli_fetch_assoc($result2);
-                    $avatar = "".$row_avatar["link"]."";
-                } else {
-                    $avatar = "avatar.png";
-                }
+            $avatar = "avatar.png";
             ?>
             <div class="auto-flow">
              <div class="details-subject">
