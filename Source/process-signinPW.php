@@ -24,7 +24,11 @@ if (isset($_POST['btnSignIn2'])) {
         $check_tb_user = mysqli_query($conn, "SELECT * FROM tb_user WHERE email = '$emailafter' " );
         $row = mysqli_fetch_assoc($check_tb_user);
         $name = " " . $row["firstName"] . " " . $row["lastName"] . " ";
+        $firstname = " " . $row["firstName"] . " ";
+        $lastname = " " . $row["lastName"] . " ";
         $_SESSION['name'] = $name;
+        $_SESSION['firstname'] = $firstname;
+        $_SESSION['lastname'] = $lastname;
         $id = "".$row["ID"]."";
         $_SESSION['id'] = $id;
 

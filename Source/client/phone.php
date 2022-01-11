@@ -1,3 +1,11 @@
+<?php
+// Kiểm tra thẻ người dùng, mở session
+session_start();
+if (!isset($_SESSION['isLoginOK'])) {
+    header("location:SignIn.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +19,7 @@
     <link rel="stylesheet" href="/CSE485_Gmail/Source/css/personal-info.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <title>Đổi giới tính</title>
+    <title>Chỉnh sửa số điện thoại</title>
 
 </head>
 
@@ -58,44 +65,25 @@
     </header>
     <br><br>
     <center>
-        <h5>Thay đổi giới tính</h5>
+        <h5>Thêm / Sửa số điện thoại</h5>
     </center>
     <hr>
     <div class="container" style="max-width:50%">
-        Hệ thống có thể dựa vào giới tính để mang đến trải nghiệm phù hợp với bạn trên các dịch vụ của Google, bao gồm cả cách chúng tôi xưng hô với bạn. <br>Tìm hiểu thêm <br><br>
-        <form action="process-gender.php" method="post">
+        Số điện này sẽ được thêm vào Tài khoản Google của bạn. <br><br>
         <div class="box-form" style="padding:32px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" value="Nữ" id="female">
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Nữ
-                </label>
-            </div>
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" value="Nam" id="male">
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Nam
-                </label>
-            </div>
-            <br>
-            <br>
-            <h6>Chọn những người có thể thấy giới tính của bạn</h6>
-            <br>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-file-lock2"></i> Chỉ mình bạn</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2"><i class="bi bi-people"></i> Bất kỳ ai</label>
-
-            </div><br><br>
-            <button type="submit" class="btn btn-primary">Lưu</button>
-            <br><br>
-            Mọi người có thể thấy thông tin này khi họ liên hệ với bạn hoặc xem nội dung bạn tạo trong các dịch vụ của Google. Tìm hiểu thêm
+            <form class="form-floating" action="process-phone.php" method="post">
+                <input type="text" class="form-control" name="numberphone" id="floatingInputValue">
+                <label for="floatingInputValue">Phone number</label>
+                <br>
+                <span>
+                    Bạn có thể đã thêm các số điện thoại không có trong danh sách này. Nếu một số điện thoại bạn đã thêm vào một dịch vụ của Google không có ở đây, hãy truy cập dịch vụ đó để kiểm soát cách số đó được sử dụng.
+                    <br> Tìm hiểu thêm</span><br><br>
+                <button type="submit" class="btn btn-primary" name="submit">Lưu</button>
+                <a href="/CSE485_Gmail/Source/personal-info.php"><button type="button" class="btn btn-light">Hủy</button></a>
+            </form>
         </div>
-        </form>
     </div>
+
 </body>
 
 </html>

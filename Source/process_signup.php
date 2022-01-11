@@ -34,6 +34,6 @@
     }
 
 } else{
-        header("location:register.php");
+        header("location:error.php");
     }
 ?>

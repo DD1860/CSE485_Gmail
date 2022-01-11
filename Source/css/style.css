@@ -159,6 +159,7 @@
 	align-items: center;
 	height: 40px;
 	background-color: transparent;
+	justify-content :right;
 }
 
 .message-default {
