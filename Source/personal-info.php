@@ -11,16 +11,20 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/personal-info.css">
+    <!-- CSS only -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Personal Infomation</title>
 </head>
 
 <body>
+    <?php
+    session_start();
+    ?>
     <div class="container">
         <header class="header">
 
             <div class="header-left">
-                <a href="personal-info.php" class="header-logo">
+                <a href="index.php" class="header-logo">
                     <img src="images/logo-google.png" alt="Google_Logo" style="width: 42%; margin-left:25px;">
                 </a>
             </div>
@@ -46,20 +50,6 @@
                         <span class="material-icons">apps</span>
                     </button>
                 </div>
-                <div class="dropdown">
-                    <div class="icons">
-                        <button id="header-profile" class="btn tooltip">
-                            <img src="images/avatar.png" class="btn-icon header-profile">
-                        </button>
-                        <div class="dropdown-content">
-                            <img src="images/avatar.png" class="avatar">
-                            <a href="#">Something in here</a>
-                            <a href="#">Something in here</a>
-                            <a href="#">Something in here</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </header>
@@ -133,14 +123,51 @@
 
             </div>
         </section>
+        <?php
+        require_once "config/db.php";
+        $result = mysqli_query($conn, "SELECT link FROM tb_uploads WHERE user_id = '{$_SESSION['id']}' ORDER BY id DESC");
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $avatar = "" . $row["link"] . "";
+        } else {
+            $avatar = "avatar.png";
+        }
+        ?>
+        <?php
+        $check_tb_user = mysqli_query($conn, "SELECT * FROM tb_user WHERE ID = '{$_SESSION['id']}' " );
+        $row = mysqli_fetch_assoc($check_tb_user);
+        ?>
         <section class="inbox">
             <div class="title">
                 <h1>Thông tin cá nhân</h1>
+                <center><img src="client/uploads/<?php echo $avatar ?>" style="margin:15px; height:120px;width:120px;border-radius:999px;"></center>
+            </div>
+            <div class="info-user">
+                <span style="font-weight:bold">Thông tin cơ bản</span><br><br>
+                <i>Một số thông tin có thể hiển thị cho những người khác đang sử dụng dịch vụ của Google.</i><br><br>
+               <span> Tên tài khoản : <?php
+                                        echo "" . $_SESSION['name'] . ""; ?> 
+                </span> <a href="client/rename.php"> <span class="material-icons" style="color:black">
+                                    keyboard_arrow_right
+                                </span> </a><br><br>
+                <span> Email : <?php echo "" . $_SESSION['isLoginOK'] . ""; ?> </span>
+                <br><br>
+                <span> Giới tính : <?php echo  $row['gioitinh'] ?> </span><a href="client/gender.php"> <span class="material-icons" style="color:black">
+                                    keyboard_arrow_right
+                                </span> </a>
+                <br><br>
+                <span> Số điện thoại : <?php echo $row['phone'] ?> </span><a href="client/phone.php"> <span class="material-icons" style="color:black">
+                                    keyboard_arrow_right
+                                </span> </a>
+                <br>
             </div>
 
         </section>
 
     </div>
+
+
+
 </body>
 
 </html>

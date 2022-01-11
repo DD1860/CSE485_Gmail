@@ -288,16 +288,7 @@ if (!isset($_SESSION['isLoginOK'])) {
     </div>
 
     <!-- Script -->
-    <script type="text/javascript">
-        function click_show_more() {
-            var x = document.getElementById('show-more');
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-            } else {
-                x.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="js/show-more.js"></script>
 
 </body>
 
