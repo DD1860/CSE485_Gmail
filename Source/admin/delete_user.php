@@ -1,4 +1,5 @@
 <?php
+     $ID = $_GET['ID'];
 
     // Bước 01: Kết nối Database Server
     $conn = mysqli_connect('localhost','root','','db_gmail');
@@ -11,11 +12,10 @@
     $number = mysqli_query($conn,$sql);
 
     if($number  > 0){
-        header("location: index.php"); //Chuyển hướng về Trang quản trị
+        header("location: process-user.php"); //Chuyển hướng về Trang quản trị
     }else{
         header("location: error.php"); //Chuyển hướng, hiển thị thông báo lỗi
     }
-
     // Bước 03: Đóng kết nối
     mysqli_close($conn);
 ?>

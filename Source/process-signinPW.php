@@ -11,6 +11,7 @@ if (isset($_POST['btnSignIn2'])) {
     }
     // Bước 02: Thực hiện truy vấn
     $pass = mysqli_real_escape_string($conn, $_POST['txtPass']);
+   
     $sql = "SELECT * FROM tb_user WHERE email = '$emailafter' AND password ='$pass'";
     // Ở đây còn có các vấn đề về tính hợp lệ dữ liệu nhập vào FORM
     // Nghiêm trọng: lỗi SQL Injection

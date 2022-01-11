@@ -48,11 +48,6 @@
       <nav class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              CORE
-            </div>
-          </li>
-          <li>
             <a href="index.php" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
               <span>Dashboard</span>
@@ -101,5 +96,4 @@
   <!-- offcanvas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 </body>
-
 </html>

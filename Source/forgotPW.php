@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nhập mật khẩu</title>
+  <title>Quên mật khẩu</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/SignInPassWord.css">
+  <link rel="stylesheet" href="css/forget.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -14,13 +14,13 @@
 
 <body>
   <div id="div1">
-    <img src="images/logo-google.png" style="width:25%; height:25%;" alt="">
-    <h4>Chào mừng</h4>
-    <p>Hãy nhập mật khẩu của bạn</p>
+    <img src="images/logo-google.png" style="width:25%; height:25%; padding-top: 15px;" alt="">
+    <h4>Khôi phục tài khoản</h4>
+    <p style="padding: 6% 12%; color: rgb(124, 121, 117);">Nhập mật khẩu cuối cùng mà bạn nhớ được khi sử dụng với Tài khoản Google này</p>
 
     <div>
       <form class="form-signin" action="process-signinPW.php" method="post">
-        <input class="input1" type="password" id="inputPassword" name="txtPass" placeholder="Nhập mật khẩu của bạn" required><br>
+        <input class="input1" type="password" id="inputPassword" name="txtPass" placeholder="Nhập mật khẩu cuối cùng" required><br>
         <?php
         if (isset($_GET['error'])) {
           echo "<p style='color:red;font-size:13px;margin:5px 33px;text-align:left;'><svg aria-hidden='true' fill='currentColor' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path></svg> {$_GET['error']} </p>";
@@ -33,14 +33,14 @@
 
     </div>
 
-    <div class="row" style="margin-bottom: 30%;">
+    <div class="row" style="margin-bottom: 25%;">
       <div class="col-md-5">
-        <a style="text-decoration: none" href="forgotPW.php">Quên mật khẩu?</a>
+        <a style="text-decoration: none" href="#">Thử cách khác</a>
       </div>
 
 
       <div class="d-grid  col-4 mx-auto">
-        <button type="submit" class="btn btn-primary" name="btnSignIn2">Tiếp theo</button>
+        <button type="submit" class="btn btn-primary" name="btnSignIn2">Kế tiếp</button>
       </div>
     </div>
     </form>
