@@ -236,20 +236,16 @@ if (!isset($_SESSION['isLoginOK'])) {
 
                                 <div class="message-default">
                                     <div class="message-sender message-content">
-                                        <span>Stack Overflow</span>
+                                        <span>Administrator</span>
                                     </div>
                                     <div class="message-subject message-content">
-                                        <span>The Overflow #97: Code quality is everyone's concern</span>
+                                        <span> Chào mừng bạn tham gia vào hệ thống Gmail</span>
                                     </div>
                                     <div class="message-seperator message-content"> - </div>
                                     <div class="message-body message-content">
-                                        <span> Welcome to ISSUE #97 of The Overflow! This newsletter is by developers,
-                                            for developers, written
-                                            and curated by the Stack Overflow team and Cassidy Williams at Netlify. This
-                                            week: why hooks changed
-                                            the React game, how to preview a short link without clicking through, and
-                                            politicians who think
-                                            viewing source is being a hacker.</span>
+                                        <span> Chào mừng bạn đến với Google. Bạn có thể dùng tài khoản mới để truy cập và sử dụng các sản phẩm, ứng dụng và dịch vụ của Google.
+                                            Dưới đây là một số mẹo để giúp bạn bắt đầu.
+                                        </span>
                                     </div>
                                     <div class="space-mail message-content"></div>
                                     <div class="message-date center-text">

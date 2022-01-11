@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset( $_SESSION['adminlogin'])) {
+    header("location:login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,6 +101,8 @@
       </nav>
     </div>
   </div>
+  <?php
+  include_once 'process-user.php'; ?>
   <!-- offcanvas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
 </body>

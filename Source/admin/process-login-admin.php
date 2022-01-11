@@ -21,7 +21,7 @@
             $sql = "SELECT * FROM tb_admin WHERE email = '$email' AND password = '$pass'";
             $result = mysqli_query($conn,$sql);
          if(mysqli_num_rows($result) > 0){
-             $_SESSION['adminlogin'] = $adminlogin; // cấp thẻ truy cập
+             $_SESSION['adminlogin'] = $email; // cấp thẻ truy cập
             header("location: index.php"); // Chuyển hướng tới trang quản trị
          }else{
             $error = "Đăng nhập thất bại.";

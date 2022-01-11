@@ -18,10 +18,7 @@
             $error = "Địa chỉ email này đã được đăng ký !";
             header("location: SignUp.php?error=$error"); }  //Chuyển hướng, hiển thị thông báo lỗi
          else {
-            $pass_md5 = md5 ($pass1);
-            $pass_hash = password_hash ($pass1, PASSWORD_DEFAULT);
-            
-        $sql = "INSERT INTO tb_user (`ID`, `firstname`, `lastname`,`email`,`password`) VALUES (NULL, '$firstName', '$lastName', '$email', '$pass_hash')";
+        $sql = "INSERT INTO tb_user (`ID`, `firstname`, `lastname`,`email`,`password`) VALUES (NULL, '$firstName', '$lastName', '$email', '$password')";
         $result = mysqli_query($conn,$sql);
          if ($result) { 
             $success = "Đăng ký thành công !";
